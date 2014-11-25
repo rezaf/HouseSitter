@@ -34,8 +34,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+# Use byebug
+gem 'byebug', group: [:development, :test]
 
 group :development do
   gem 'better_errors'
