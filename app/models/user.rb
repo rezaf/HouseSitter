@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   validates :username, :email, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, uniqueness: true
@@ -31,9 +30,7 @@ class User < ActiveRecord::Base
   end
 
   private
-
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
   end
-
 end
