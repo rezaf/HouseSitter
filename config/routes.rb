@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   resources :users, only: :new
   resource :session, only: :new
+
+  namespace :api, defaults: { format: :json } do
+    resources :listings
+  end
 end
