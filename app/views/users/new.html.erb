@@ -1,5 +1,8 @@
 <h1>Sign Up</h1>
 
+<%= @user.errors.full_messages unless @user.errors.full_messages == [] %>
+<br>
+
 <form action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label>Username<br>
