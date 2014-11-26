@@ -3,7 +3,7 @@
 <form action="/session" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label>Username<br>
-    <input type= "text" name="user[username]">
+    <input type= "text" name="user[username]" value="<%= @credentials[:username] %>">
   </label><br>
   <label>Password<br>
     <input type= "password" name="user[password]">

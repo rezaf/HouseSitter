@@ -3,10 +3,10 @@
 <form action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label>Username<br>
-    <input type= "text" name="user[username]">
+    <input type= "text" name="user[username]" value="<%= @user.username %>">
   </label><br>
   <label>Email<br>
-    <input type= "text" name="user[email]">
+    <input type= "text" name="user[email]" value="<%= @user.email %>">
   </label><br>
   <label>Password<br>
     <input type= "password" name="user[password]">
