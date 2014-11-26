@@ -1,6 +1,6 @@
 <h1>Sign In</h1>
 
-<%= flash[:errors].first unless flash[:errors].first == [] %>
+<%= flash[:errors].first unless flash[:errors].nil? %>
 <br>
 
 <form action="/session" method="post">
