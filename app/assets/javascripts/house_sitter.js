@@ -4,8 +4,9 @@ window.HouseSitter = {
   Views: {},
   Routers: {},
   initialize: function() {
-    
-  }
+    $rootEl: $("#main")
+  },
+  Backbone.history.start()
 };
 
 $(document).ready(function(){
