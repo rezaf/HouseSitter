@@ -1,7 +1,6 @@
 HouseSitter.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
-    this.$rootEl = options.$rootEl;
-    Backbone.history.start();
+    this.$rootEl = options.$rootEl
   },
 
   routes: {
