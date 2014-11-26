@@ -4,8 +4,7 @@ class User < ActiveRecord::Base
   validates :username, :email, uniqueness: true
 
   attr_reader :password
-  attr_accessor :email, :rating
-
+  
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)

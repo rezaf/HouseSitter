@@ -7,7 +7,6 @@ window.HouseSitter = {
     new HouseSitter.Routers.Router({
       $rootEl: $('#main')
     });
-    Backbone.history.start();
   }
 };
 
