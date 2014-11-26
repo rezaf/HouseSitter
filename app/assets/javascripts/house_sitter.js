@@ -4,9 +4,11 @@ window.HouseSitter = {
   Views: {},
   Routers: {},
   initialize: function() {
-    $rootEl: $("#main")
-  },
-  Backbone.history.start()
+    new HouseSitter.Routers.Router({
+      $rootEl: $('#main')
+    });
+    Backbone.history.start();
+  }
 };
 
 $(document).ready(function(){
