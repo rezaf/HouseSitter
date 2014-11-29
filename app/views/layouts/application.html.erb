@@ -23,9 +23,14 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar">
-        <li>
+        <li id="sign-out-link">
           <% if signed_in? %>
-            <h4 class="navbar-text"><%= current_user.username %></h4><%= button_to "Sign Out", session_url, method: :delete %>
+            <h4 class="navbar-text">
+              <%= current_user.username %>
+            </h4>
+            <h4 id="sign-out-button">
+              <%= button_to "Sign Out", session_url, method: :delete %>
+            </h4>
           <% end %>
         </li>
       </ul>
