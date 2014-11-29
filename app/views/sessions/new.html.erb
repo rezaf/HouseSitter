@@ -1,19 +1,21 @@
-<h1>Sign In</h1>
+<div class="row">
+  <div class="col-xs-4 col-xs-offset-1">
+    <h1>Sign In</h1>
+    <%= flash[:errors].first unless flash[:errors].nil? %><br>
 
-<%= flash[:errors].first unless flash[:errors].nil? %>
-<br>
-
-<form action="/session" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <div class="form-group">
-    <label>Username</label><br>
-    <input type= "text" name="user[username]" value="<%= @credentials[:username] %>" class="form-control">
+    <form action="/session" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <div class="form-group">
+        <label>Username</label><br>
+        <input type= "text" name="user[username]" value="<%= @credentials[:username] %>" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Password</label><br>
+        <input type= "password" name="user[password]" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="button" value="Submit" class="btn btn-primary"><br>
+      </div>
+    </form>
   </div>
-  <div class="form-group">
-    <label>Password</label><br>
-    <input type= "password" name="user[password]" class="form-control">
-  </div>
-  <div class="form-group">
-    <input type="submit" value="Submit"><br>
-  </div>
-</form>
+</div>

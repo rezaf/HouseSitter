@@ -1,18 +1,25 @@
-<h1>Sign Up</h1>
+<div class="row">
+  <div class="col-xs-4 col-xs-offset-1">
+    <h1>Sign Up</h1>
+    <%= @user.errors.full_messages unless @user.errors.full_messages == [] %><br>
 
-<%= @user.errors.full_messages unless @user.errors.full_messages == [] %>
-<br>
-
-<form action="/users" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label>Username<br>
-    <input type= "text" name="user[username]" value="<%= @user.username %>">
-  </label><br>
-  <label>Email<br>
-    <input type= "text" name="user[email]" value="<%= @user.email %>">
-  </label><br>
-  <label>Password<br>
-    <input type= "password" name="user[password]">
-  </label><br>
-  <input type="submit" value="Submit"><br>
-</form>
+    <form action="/users" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <div class="form-group">
+        <label>Username</label><br>
+        <input class="form-control" type= "text" name="user[username]" value="<%= @user.username %>">
+      </div>
+      <div class="form-group">
+        <label>Email</label><br>
+        <input class="form-control" type= "text" name="user[email]" value="<%= @user.email %>">
+      </div>
+      <div class="form-group">
+        <label>Password</label><br>
+        <input class="form-control" type= "password" name="user[password]">
+      </div>
+      <div class="form-group">
+        <input class="btn btn-primary" type="button" value="Submit"><br>
+      </div>
+    </form>
+  </div>
+</div>
