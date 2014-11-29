@@ -28,9 +28,11 @@
               <h4 class="navbar-text">
                 <%= current_user.username %>
               </h4>
-              <h4 id="sign-out-button">
-                <%= button_to "Sign Out", session_url, method: :delete %>
-              </h4>
+              <form id="sign-out-button" action="<%= session_url %>" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="_method" value="delete">
+                <input class="btn btn-primary" type="submit" value="Sign Out">
+              </form>
             <% end %>
           </li>
         </ul>
