@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-4 col-xs-offset-1">
-    <h1>Sign Up</h1>
-    <%= @user.errors.full_messages unless @user.errors.full_messages == [] %><br>
+    <h1>Sign Up</h1><br>
+    <h5><%= @user.errors.full_messages.first unless @user.errors.full_messages == [] %></h5><br>
 
     <form action="/users" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -18,7 +18,7 @@
         <input class="form-control" type= "password" name="user[password]">
       </div>
       <div class="form-group">
-        <input class="btn btn-primary" type="button" value="Submit"><br>
+        <input class="btn btn-primary" type="submit" value="Submit"><br>
       </div>
     </form>
   </div>
