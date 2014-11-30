@@ -2,19 +2,6 @@
   <div class="col-xs-4 col-xs-offset-1">
     <h1>Sign In</h1><br>
     <h5><%= flash[:errors].first unless flash[:errors].nil? %></h5><br>
-    <form action="/session" method="post">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <div class="form-group">
-        <label>Username</label><br>
-        <input type= "text" name="user[username]" value="<%= @credentials[:username] %>" class="form-control">
-      </div>
-      <div class="form-group">
-        <label>Password</label><br>
-        <input class="form-control" type= "password" name="user[password]">
-      </div>
-      <div class="form-group">
-        <input class="btn btn-primary" type="submit" value="Submit"><br>
-      </div>
-    </form>
+    <%= render "form" %>
   </div>
 </div>
