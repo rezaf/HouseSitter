@@ -5,30 +5,33 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'new_favicon.ico' %>
 </head>
 
 <body>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <% if signed_in? %>
+        <%# if signed_in? %>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsable">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <% end %>
+        <%# end %>
         <a class="navbar-brand" href="#">
           <img id="logo" src='<%= image_url("logo.png") %>'>
         </a>
       </div>
 
       <div class="collapse navbar-collapse" id="navbar-collapsable">
-        <ul class="nav navbar-nav">
-          <li><a href="#">Link</a></li>
-        </ul>
-        <div class="nav navbar-nav navbar-right" id="user-status">
-          <% if signed_in? %>
+        <% unless signed_in? %>
+          <ul class="nav navbar-nav navbar-right" id="sign-ins">
+            <li><a href="#">Sign In</a></li>
+            <li><a href="#">Sign Up</a></li>
+          </ul>
+        <% else %>
+          <div class="nav navbar-nav navbar-right" id="user-status">
             <p class="navbar-text">
               Signed in as
               <%= current_user.username %>
@@ -38,8 +41,8 @@
               <input type="hidden" name="_method" value="delete">
               <button class="btn btn-default" type="submit">Sign Out</button>
             </form>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </nav>
