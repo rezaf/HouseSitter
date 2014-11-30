@@ -2,7 +2,6 @@
   <div class="col-xs-4 col-xs-offset-1">
     <h1>Sign Up</h1><br>
     <h5><%= @user.errors.full_messages.first unless @user.errors.full_messages == [] %></h5><br>
-
     <form action="/users" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <div class="form-group">

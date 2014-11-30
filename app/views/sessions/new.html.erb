@@ -2,7 +2,6 @@
   <div class="col-xs-4 col-xs-offset-1">
     <h1>Sign In</h1><br>
     <h5><%= flash[:errors].first unless flash[:errors].nil? %></h5><br>
-
     <form action="/session" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <div class="form-group">
