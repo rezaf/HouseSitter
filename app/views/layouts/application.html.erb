@@ -7,27 +7,28 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'new_favicon.ico' %>
 
-  <script>
-    function initialize() {
-      var mapOptions = {
-        zoom: 7,
-        center: new google.maps.LatLng(52, 0)
-      };
+  <% if signed_in? %>
+    <script>
+      function initialize() {
+        var mapOptions = {
+          zoom: 7,
+          center: new google.maps.LatLng(52, 0)
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+      }
 
-      var map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-    }
+      function loadScript() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+        'callback=initialize';
+        document.body.appendChild(script);
+      }
 
-    function loadScript() {
-      var script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
-      'callback=initialize';
-      document.body.appendChild(script);
-    }
-
-    window.onload = loadScript;
-  </script>
+      window.onload = loadScript;
+    </script>
+  <% end %>
 </head>
 
 <body>
