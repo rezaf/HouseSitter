@@ -17,14 +17,18 @@ ActiveRecord::Schema.define(version: 20141201211840) do
   enable_extension "plpgsql"
 
   create_table "listings", force: true do |t|
+    t.integer  "user_id",     null: false
     t.string   "title",       null: false
     t.text     "description", null: false
     t.string   "image"
-    t.integer  "user_id",     null: false
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "listings", ["latitude"], name: "index_listings_on_latitude", using: :btree
+  add_index "listings", ["longitude"], name: "index_listings_on_longitude", using: :btree
   add_index "listings", ["user_id"], name: "index_listings_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
