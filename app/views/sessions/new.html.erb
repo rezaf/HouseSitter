@@ -1,3 +1,11 @@
+<% if @trigger_modal %>
+  <script type="text/javascript">
+  $(window).load(function(){
+    $('#signinModal').modal('show');
+  });
+  </script>
+<% end %>
+
 <div class="modal fade" id="signinModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -8,6 +16,7 @@
         <h4 class="modal-title">Sign In</h4>
       </div>
       <div class="modal-body">
+        <h5><%= flash[:errors].first unless flash[:errors].nil? %></h5><br>
         <%= render "form" %>
       </div>
     </div>
