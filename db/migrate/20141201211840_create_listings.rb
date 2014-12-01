@@ -5,6 +5,7 @@ class CreateListings < ActiveRecord::Migration
       t.string :title, null: false
       t.text :description, null: false
       t.string :image
+      t.string :address
       t.float :latitude
       t.float :longitude
 
