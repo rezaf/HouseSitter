@@ -1,6 +1,6 @@
 HouseSitter.Collections.Listings = Backbone.Collection.extend({
   model: HouseSitter.Models.Listing,
-  url: '/api/listings'
+  url: '/api/listings',
 
   getOrFetch: function (id) {
     var listing = this.get(id);

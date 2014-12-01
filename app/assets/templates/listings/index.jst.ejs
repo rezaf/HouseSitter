@@ -1,1 +1,18 @@
-<h1>Listings Index</h1>
+<div class='listings-index-title'>
+  <h2>All Listings</h2>
+</div>
+
+<ul class='listings'>
+  <% listings.each(function (listing) { %>
+    <li>
+      <a href="#/listing/<%= listing.id %>">
+        <span class='shadow'></span>
+          <h4><%= listing.escape("title") %></h4>
+        <span class='details'>
+          <p><%= listing.escape("description") %></p>
+          <br>
+        </span>
+      </a>
+    </li>
+  <% }); %>
+</ul>
