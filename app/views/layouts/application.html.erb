@@ -8,17 +8,13 @@
   <%= favicon_link_tag 'new_favicon.ico' %>
 
   <style>
-    html, body, #map-canvas {
-      height: 100%;
-      margin: 0px;
-      padding: 0px
-    }
+
   </style>
   <script>
     function initialize() {
       var mapOptions = {
-        zoom: 8,
-        center: new google.maps.LatLng(-34.397, 150.644)
+        zoom: 7,
+        center: new google.maps.LatLng(52, 0)
       };
 
       var map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -75,7 +71,7 @@
   </nav>
 
   <div id="map-canvas"></div>
-  
+
   <div class="container">
     <%= yield %>
   </div>
