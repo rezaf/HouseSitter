@@ -14,7 +14,11 @@
         <h4 class="modal-title">Sign Up</h4>
       </div>
       <div class="modal-body">
-        <h5><%= @user.errors.full_messages.first unless @user.errors.full_messages == [] %></h5><br>
+        <% unless @user.errors.full_messages == [] %>
+          <div class="alert alert-danger">
+            <p><%= @user.errors.full_messages.first %></p>
+          </div>
+        <% end %>
         <%= render "form" %>
       </div>
     </div>

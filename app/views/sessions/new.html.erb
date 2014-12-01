@@ -16,7 +16,11 @@
         <h4 class="modal-title">Sign In</h4>
       </div>
       <div class="modal-body">
-        <h5><%= flash[:errors].first unless flash[:errors].nil? %></h5><br>
+        <% unless flash[:errors].nil? %>
+          <div class="alert alert-danger">
+            <p><%= flash[:errors].first %></p>
+          </div>
+        <% end %>
         <%= render "form" %>
       </div>
     </div>
