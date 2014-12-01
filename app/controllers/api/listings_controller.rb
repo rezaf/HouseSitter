@@ -1,8 +1,39 @@
 module Api
   class ListingsController < ApiController
     def index
-      @listings = 'need to fill more info'
+      @listings = Listing.all
       render json: @listings
+    end
+
+    def show
+      @listing = Listing.find(params[:id])
+
+      if @listing
+        render json: @listing
+      else
+        render json: @listing.errors.full_messages, status: :unprocessable_entity
+      end
+    end
+
+    def create
+      @listing = Listing.new(listing_params)
+
+      if @listing.save
+        render json: @listing
+      else
+        render json: @listing.errors.full_messages, status: unprocessable_entity
+      end
+    end
+
+    def destroy
+      @listing = Listing.find(params[:id])
+      @listing.destroy
+      render json: { message: 'destroyed!' }
+    end
+
+    private
+    def listing_params
+      params.require(:listing).permit(:title, :description, :latitude, :longitude)
     end
   end
 end
