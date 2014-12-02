@@ -8,7 +8,7 @@ HouseSitter.Views.ListingShow = Backbone.View.extend({
 
   render: function () {
     var renderedContent = this.template({
-      post: this.model
+      listing: this.model
     });
     this.$el.html(renderedContent);
     return this;

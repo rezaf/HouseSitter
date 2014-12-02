@@ -3,7 +3,7 @@ HouseSitter.Collections.Listings = Backbone.Collection.extend({
   url: '/api/listings',
 
   getOrFetch: function (id) {
-    var listing = this.escape(id);
+    var listing = this.get(id);
     var listings = this;
 
     if (!listing) {

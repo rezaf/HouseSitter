@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require bootstrap
+//= require serializejson
 //= require house_sitter
 //= require_tree ../templates
 //= require_tree ./models

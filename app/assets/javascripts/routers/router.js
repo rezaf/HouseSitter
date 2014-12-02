@@ -21,7 +21,7 @@ HouseSitter.Routers.Router = Backbone.Router.extend({
   new: function () {
     var newListing = new HouseSitter.Models.Listing();
 
-    var formView = new HouseSitter.Views.ListingForm({
+    var formView = new HouseSitter.Views.ListingsForm({
       collection: HouseSitter.Collections.listings,
       model: newListing
     });
@@ -38,7 +38,7 @@ HouseSitter.Routers.Router = Backbone.Router.extend({
   edit: function (id) {
     var listing = HouseSitter.Collections.listings.getOrFetch(id);
 
-    var formView = new HouseSitter.Views.ListingForm({
+    var formView = new HouseSitter.Views.ListingsForm({
       model: listing,
       collection: HouseSitter.Collections.listings
     });
