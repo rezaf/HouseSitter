@@ -49,7 +49,7 @@
       <div class="collapse navbar-collapse" id="navbar-collapsable">
         <% unless signed_in? %>
           <ul class="nav navbar-nav navbar-right" id="sign-ins">
-            <%= link_to '<button type="button" class="btn btn-primary btn-sm">Sign Up</button>'.html_safe, new_user_url %>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" href="#signupModal">Sign Up</button>
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" href="#signinModal">Sign In</button>
           </ul>
         <% else %>
@@ -80,5 +80,6 @@
     <div id="map-canvas"></div>
     <%= yield %>
   </div>
+
 </body>
 </html>

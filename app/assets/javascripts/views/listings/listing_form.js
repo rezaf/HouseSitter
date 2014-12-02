@@ -19,6 +19,7 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
   },
 
   submit: function (event) {
+    debugger;
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     that = this;
@@ -28,6 +29,10 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
       success: function () {
         that.collection.add(that.model, { merge: true });
         Backbone.history.navigate("", { trigger: true });
+      },
+      error: function (model, response, options) {
+        that.render();
+        debugger;
       }
     });
   }
