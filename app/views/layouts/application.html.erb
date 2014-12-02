@@ -54,7 +54,11 @@
           </ul>
         <% else %>
           <div class="nav navbar-nav">
-            <button type="button" class="btn btn-primary" href="#">Create Listing</button>
+            <form class="navbar-form" action="#listings/new" method="get">
+              <button class="btn btn-primary" type="submit">
+                Create New Listing
+              </button>
+            </form>
           </div>
           <div class="nav navbar-nav navbar-right" id="user-status">
             <p class="navbar-text">

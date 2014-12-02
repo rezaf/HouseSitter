@@ -6,6 +6,10 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
     'click button': 'submit'
   },
 
+  initialize: function () {
+    $("#create-listing").on("click", this.render());
+  },
+
   render: function () {
     var renderedContent = this.template({
       listing: this.model
