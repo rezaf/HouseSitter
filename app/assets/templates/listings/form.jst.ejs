@@ -1,15 +1,25 @@
-<h1><%= listing.isNew() ? 'New Listing' : 'Edit Listing' %></h1>
+<h2><%= listing.isNew() ? 'New Listing' : 'Edit Listing' %></h2>
 
-<label for='title'>Title</label><br>
+<div class="form-group form-inline">
+  <label for='title'>Title</label><br>
+  <input class="form-control"
+          placeholder="Enter listing title"
+          type='text'
+          name='title'
+          id='title'
+          value='<%= listing.escape('title') %>'
+  >
+</div>
 
-<input type='text' name='title' id='title'
-        value='<%= listing.escape('title') %>'><br>
-
-<label for='description'>Descrption</label><br>
-
-<textarea name='description' id='description'>
-  <%= listing.escape('description') %>
-</textarea><br>
+<div class="form-group form-inline">
+  <label for='description'>Descrption</label><br>
+  <textarea class='form-control'
+            name='description'
+            id='description'
+  >
+    <%= listing.escape('description') %>
+  </textarea><br>
+</div>
 
 <div class="btn-group">
   <button class="btn btn-primary btn-sm">Submit</button>
