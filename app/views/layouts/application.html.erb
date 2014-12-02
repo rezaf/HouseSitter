@@ -53,6 +53,9 @@
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" href="#signinModal">Sign In</button>
           </ul>
         <% else %>
+          <div class="nav navbar-nav">
+            <button type="button" class="btn btn-primary" href="#">Create Listing</button>
+          </div>
           <div class="nav navbar-nav navbar-right" id="user-status">
             <p class="navbar-text">
               Signed in as
@@ -61,7 +64,7 @@
             <form class="navbar-form navbar-right" action="<%= session_url %>" method="post">
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
               <input type="hidden" name="_method" value="delete">
-              <button class="btn btn-default" type="submit">Sign Out</button>
+              <button class="btn btn-primary" type="submit">Sign Out</button>
             </form>
           </div>
         <% end %>
