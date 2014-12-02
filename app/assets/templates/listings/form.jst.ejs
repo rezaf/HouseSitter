@@ -1,7 +1,16 @@
-<form class="form">
-  <div class="form-group">
-    <textarea class="form-control" autofocus='true'></textarea>
-  </div>
-  <button class="btn btn-success">Add</button>
-  <a href="#" class="close close-lg">&times;</a>
-</form>
+<h1><%= listing.isNew() ? 'New Listing' : 'Edit Listing' %></h1>
+
+<label for='title'>Title</label><br>
+
+<input type='text' name='title' id='title'
+        value='<%= listing.escape('title') %>'><br>
+
+<label for='description'>Descrption</label><br>
+
+<textarea name='description' id='description'>
+  <%= post.escape('description') %>
+</textarea><br>
+
+<button>Submit</button>
+
+<a href='#/'>Back</a>
