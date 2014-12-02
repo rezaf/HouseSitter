@@ -4,7 +4,7 @@
 
 <ul class='listings'>
   <% listings.each(function (listing) { %>
-    <li>
+    <li class='listing'>
       <a href="#/listings/<%= listing.id %>">
         <span class='shadow'></span>
           <h4><%= listing.escape("title") %></h4>
