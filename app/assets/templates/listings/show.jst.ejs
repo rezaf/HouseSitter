@@ -1,7 +1,12 @@
-<h1>Listing Show View</h1>
+<div class="listings-index-title">
+  <h2>Listing Show View</h2>
+</div>
 
-<h1><%= listing.escape('title') %></h1>
+<div class="listings show">
+  <h3><%= listing.escape('title') %></h3>
 
-<p><%= listing.escape('description') %></p>
+  <p><%= listing.escape('description') %></p>
+  <p><%= listing.escape('address') %></p>
 
-<a href='#/'>Index</a>
+  <a href='#/'>Index</a>
+</div>

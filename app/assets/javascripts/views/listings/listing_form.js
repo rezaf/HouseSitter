@@ -20,7 +20,9 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
 
   submit: function (event) {
     event.preventDefault();
+    var address = this.$el.serializeJSON().address;
     var attrs = this.$el.serializeJSON();
+    debugger
     that = this;
 
     this.model.save(attrs, {

@@ -9,6 +9,9 @@
 
   <% if signed_in? %>
     <script>
+      // filepicker.setKey("<%= ENV[''] %>");
+    </script>
+    <script>
       function initialize() {
         var mapOptions = {
           center: new google.maps.LatLng(37.77, -122.42),
@@ -95,7 +98,7 @@
         var script = document.createElement('script');
         script.type = 'text/javascript';
         script.src = 'https://maps.googleapis.com/maps/api/js?' +
-            // 'key=AIzaSyAlgQ_SPQg1QnUHfbfpm-BJUy6N6A__U1M' +
+            // 'key=' +
             'libraries=places' +
             '&callback=initialize';
         document.body.appendChild(script);

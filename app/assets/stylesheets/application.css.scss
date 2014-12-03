@@ -66,6 +66,22 @@ body {
   padding: 40px;
 }
 
-.listings, .listings-index-title {
-  margin: 30px;
+.listings-index-title {
+  position: fixed;
+  left: 0;
+  top: 50px;
+  padding-left: 40px;
+}
+
+.listings {
+  position: fixed;
+  left: 0;
+  top: 130px;
+  bottom: 0;
+  width: 50%;
+  overflow: auto;
+}
+
+.show {
+  left: 50px;
 }
