@@ -23,8 +23,7 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
     var attrs = this.$el.serializeJSON();
     that = this;
 
-    this.model.set(attrs);
-    this.model.save({}, {
+    this.model.save(attrs, {
       success: function () {
         that.collection.add(that.model, { merge: true });
         Backbone.history.navigate("", { trigger: true });

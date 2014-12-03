@@ -55,5 +55,17 @@ body {
 }
 
 #new-listing {
-  margin-right: 100px;
+  // margin-right: 100px;
+  border: solid;
 }
+
+// use position fixed for #map-canvas and #new-listing!
+// #new-listing {
+//   position: fixed;
+//   border: solid;
+//   left: 0;
+//   top: 60px;
+//   width: 50%;
+//   overflow: auto;
+//   padding: 40px 40px;
+//   bottom: 0;
