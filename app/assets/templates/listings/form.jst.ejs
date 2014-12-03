@@ -1,45 +1,47 @@
-<h3><%= listing.isNew() ? 'New Listing' : 'Edit Listing' %></h3><br>
+<div id="new-listing">
+  <h3><%= listing.isNew() ? 'New Listing' : 'Edit Listing' %></h3><br>
 
-<% if (listing) %>
-  <div class="alert alert-danger">
-    <p><%= listing.errors %></p>
+  <% if (listing.errors) { %>
+    <div class="alert alert-danger ">
+      <p><%= listing.errors %></p>
+    </div>
+  <% } %>
+
+  <div class="form-group form-inline">
+    <label for='title'>Title</label><br>
+    <input class="form-control"
+            placeholder="Title"
+            type='text'
+            name='title'
+            id='title'
+            value='<%= listing.escape('title') %>'
+    ><br>
   </div>
-<% end %>
 
-<div class="form-group form-inline">
-  <label for='title'>Title</label><br>
-  <input class="form-control"
-          placeholder="Title"
-          type='text'
-          name='title'
-          id='title'
-          value='<%= listing.escape('title') %>'
-  ><br>
-</div>
+  <div class="form-group form-inline">
+    <label for='description'>Descrption</label><br>
+    <textarea class='form-control'
+              name='description'
+              id='description'
+              placeholder="Description"
+              rows='5'
+              value='<%= listing.escape('description') %>'
+    ></textarea><br>
+  </div>
 
-<div class="form-group form-inline">
-  <label for='description'>Descrption</label><br>
-  <textarea class='form-control'
-            name='description'
-            id='description'
-            placeholder="Description"
-            rows='5'
-            value='<%= listing.escape('description') %>'
-  ></textarea><br>
-</div>
+  <div class="form-group form-inline">
+    <label for="address-field">Address</label><br>
+    <input type="text"
+            class="form-control"
+            name="address-field"
+            id="address-field"
+            placeholder="Address"
+            value="<%= listing.escape('address') %>"
+    ></br>
+  </div>
 
-<div class="form-group form-inline">
-  <label for="address-field">Address</label><br>
-  <input type="text"
-          class="form-control"
-          name="address-field"
-          id="address-field"
-          placeholder="Address"
-          value="<%= listing.escape('address') %>"
-  ></br>
-</div>
-
-<div class="btn-group">
-  <button class="btn btn-primary">Submit</button>
-  <a class="btn btn-info" href='#/'>Cancel</a>
+  <div class="btn-group">
+    <button class="btn btn-primary">Submit</button>
+    <a class="btn btn-info" href='#/'>Cancel</a>
+  </div>
 </div>
