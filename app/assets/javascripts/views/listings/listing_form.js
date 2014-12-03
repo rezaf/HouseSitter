@@ -4,6 +4,7 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
 
   events: {
     'click button': 'submit'
+    // 'click #image-upload': 'upload'
   },
 
   initialize: function () {
@@ -18,18 +19,18 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
     return this;
   },
 
-  upload: function () {
-    filepicker.pick(function(blob) {
-      var newImage = new HouseSitter.Models.Listing({
-        image: blob.url
-      });
-      newImage.save({}, {
-        success: function () {
-          alert('Image saved!');
-        }
-      })
-    });
-  }
+  // upload: function () {
+  //   filepicker.pick(function(blob) {
+  //     var newImage = new HouseSitter.Models.Listing({
+  //       image: blob.url
+  //     });
+  //     newImage.save({}, {
+  //       success: function () {
+  //         alert('Image saved!');
+  //       }
+  //     })
+  //   });
+  // },
 
   submit: function (event) {
     event.preventDefault();
