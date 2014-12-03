@@ -44,7 +44,7 @@ body {
 #map-canvas {
   height: 650px;
   width: 500px;
-  margin: auto;
+  margin-left: 100px;
   padding: auto;
   float: right;
   border: solid 1px;
@@ -55,7 +55,5 @@ body {
 }
 
 #new-listing {
-  height: 650px;
-  width: 500px;
-  padding-right: 150px;
+  margin-right: 100px;
 }
