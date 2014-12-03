@@ -95,7 +95,8 @@
         var script = document.createElement('script');
         script.type = 'text/javascript';
         script.src = 'https://maps.googleapis.com/maps/api/js?' +
-            'key=AIzaSyAlgQ_SPQg1QnUHfbfpm-BJUy6N6A__U1M' +
+            // 'key=AIzaSyAlgQ_SPQg1QnUHfbfpm-BJUy6N6A__U1M' +
+            'libraries=places' +
             '&callback=initialize';
         document.body.appendChild(script);
       }
@@ -149,6 +150,12 @@
       </div>
     </div>
   </nav>
+
+  <input id="pac-input"
+          class="controls"
+          type="text"
+          placeholder="Enter a location"
+  >
 
   <div id="map-canvas"></div>
   <%= yield %>
