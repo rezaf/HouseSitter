@@ -4,12 +4,24 @@
   <title>HouseSitter</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+  <%= filepicker_js_include_tag %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'new_favicon.ico' %>
 
+  <% if Rails.env.production? %>
+    <% source_string = 'https://maps.googleapis.com/maps/api/js?' +
+                        'key=AIzaSyAlgQ_SPQg1QnUHfbfpm-BJUy6N6A__U1M' +
+                        'libraries=places' +
+                        '&callback=initialize' %>
+  <% else %>
+    <% source_string = 'https://maps.googleapis.com/maps/api/js?' +
+                        'libraries=places' +
+                        '&callback=initialize' %>
+  <% end %>
+
   <% if signed_in? %>
     <script>
-      // filepicker.setKey("<%= ENV[''] %>");
+      filepicker.setKey("<%= ENV['AwsdEFbdRtWSNdPkM6lV3z'] %>");
     </script>
     <script>
       function initialize() {
@@ -98,9 +110,8 @@
         var script = document.createElement('script');
         script.type = 'text/javascript';
         script.src = 'https://maps.googleapis.com/maps/api/js?' +
-            // 'key=' +
-            'libraries=places' +
-            '&callback=initialize';
+                      'libraries=places' +
+                      '&callback=initialize';
         document.body.appendChild(script);
       }
 
