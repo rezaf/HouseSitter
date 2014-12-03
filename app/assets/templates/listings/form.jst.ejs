@@ -1,10 +1,10 @@
 <h3><%= listing.isNew() ? 'New Listing' : 'Edit Listing' %></h3><br>
 
-<div id="error">
-    <% if (listing) { %>
-      <p><%= listing.errors %></p>
-    <% } %>
-</div>
+<% if (listing) %>
+  <div class="alert alert-danger">
+    <p><%= listing.errors %></p>
+  </div>
+<% end %>
 
 <div class="form-group form-inline">
   <label for='title'>Title</label><br>

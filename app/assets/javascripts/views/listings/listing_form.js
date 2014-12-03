@@ -19,7 +19,6 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
   },
 
   submit: function (event) {
-    debugger;
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     that = this;
@@ -31,8 +30,8 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
         Backbone.history.navigate("", { trigger: true });
       },
       error: function (model, response, options) {
+        that.model.errors = response.responseJSON.join(". ").concat(".");
         that.render();
-        debugger;
       }
     });
   }
