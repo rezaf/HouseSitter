@@ -7,6 +7,11 @@
   <%= filepicker_js_include_tag %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'new_favicon.ico' %>
+  <% if Rails.env.production? %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlgQ_SPQg1QnUHfbfpm-BJUy6N6A__U1M&v=3.exp&libraries=places"></script>
+  <% else %>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+  <% end %>
 </head>
 
 <body>
@@ -59,7 +64,7 @@
 
   <% if signed_in? %>
     <script>
-      filepicker.setKey("<%= ENV['AwsdEFbdRtWSNdPkM6lV3z'] %>");
+      filepicker.setKey("AwsdEFbdRtWSNdPkM6lV3z");
     </script>
 
     <script>
@@ -68,15 +73,12 @@
           center: new google.maps.LatLng(37.77, -122.42),
           zoom: 13
         };
-      var map = new google.maps.Map(document.getElementById('map-canvas'),
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
                                     mapOptions);
 
-      var input = /** @type {HTMLInputElement} */(
-        document.getElementById('pac-input'));
-
-        // var types = document.getElementById('type-selector');
-        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+        var input = /** @type {HTMLInputElement} */(
+          document.getElementById('pac-input'));
 
         var autocomplete = new google.maps.places.Autocomplete(input);
         autocomplete.bindTo('bounds', map);
@@ -128,41 +130,11 @@
             place.name + '</strong><br>' + address);
             infowindow.open(map, marker);
           });
-
-          // Sets a listener on a radio button to change the filter type on Places
-          // Autocomplete.
-          function setupClickListener(id, types) {
-            var radioButton = document.getElementById(id);
-            google.maps.event.addDomListener(radioButton, 'click', function() {
-              autocomplete.setTypes(types);
-            });
-          }
-
-          setupClickListener('changetype-all', []);
-          setupClickListener('changetype-address', ['address']);
-          setupClickListener('changetype-establishment', ['establishment']);
-          setupClickListener('changetype-geocode', ['geocode']);
         }
 
-        <% if Rails.env.production? %>
-          <% source_string = 'https://maps.googleapis.com/maps/api/js?' +
-                              'key=AIzaSyAlgQ_SPQg1QnUHfbfpm-BJUy6N6A__U1M' +
-                              'libraries=places' +
-                              '&callback=initialize' %>
-        <% else %>
-          <% source_string =
-                'https://maps.googleapis.com/maps/api/js?callback=initialize' %>
-        <% end %>
-
         $(function () {
-          var script = document.createElement('script');
-          script.type = 'text/javascript';
-          script.src = "<%= source_string %>";
-          document.body.appendChild(script);
+          initialize();
         })
-
-        // window.onload = loadScript;
-        // google.maps.event.addDomListener(window, 'load', initialize);
       </script>
     <% end %>
 </body>
