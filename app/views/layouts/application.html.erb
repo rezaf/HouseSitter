@@ -7,10 +7,6 @@
   <%= filepicker_js_include_tag %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'new_favicon.ico' %>
-
-
-
-
 </head>
 
 <body>
@@ -58,114 +54,116 @@
   </nav>
 
   <div id="map-canvas"></div>
+
   <%= yield %>
+
   <% if signed_in? %>
-  <script>
-  filepicker.setKey("<%= ENV['AwsdEFbdRtWSNdPkM6lV3z'] %>");
-  </script>
-  <script>
-  function initialize() {
-    var mapOptions = {
-      center: new google.maps.LatLng(37.77, -122.42),
-      zoom: 13
-    };
-    var map = new google.maps.Map(document.getElementById('map-canvas'),
-    mapOptions);
+    <script>
+      filepicker.setKey("<%= ENV['AwsdEFbdRtWSNdPkM6lV3z'] %>");
+    </script>
 
-    var input = /** @type {HTMLInputElement} */(
-      document.getElementById('pac-input'));
+    <script>
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(37.77, -122.42),
+          zoom: 13
+        };
+      var map = new google.maps.Map(document.getElementById('map-canvas'),
+                                    mapOptions);
 
-      // var types = document.getElementById('type-selector');
-      // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-      // map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+      var input = /** @type {HTMLInputElement} */(
+        document.getElementById('pac-input'));
 
-      var autocomplete = new google.maps.places.Autocomplete(input);
-      autocomplete.bindTo('bounds', map);
+        // var types = document.getElementById('type-selector');
+        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
 
-      var infowindow = new google.maps.InfoWindow();
-      var marker = new google.maps.Marker({
-        map: map,
-        anchorPoint: new google.maps.Point(0, -29)
-      });
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
 
-      google.maps.event.addListener(autocomplete, 'place_changed', function()  {
-        infowindow.close();
-        marker.setVisible(false);
-        var place = autocomplete.getPlace();
-        if (!place.geometry) {
-          return;
-        }
-
-        // If the place has a geometry, then present it on a map.
-        if (place.geometry.viewport) {
-          map.fitBounds(place.geometry.viewport);
-        } else {
-          map.setCenter(place.geometry.location);
-          map.setZoom(17);  // Why 17? Because it looks good.
-        }
-        marker.setIcon(/** @type {google.maps.Icon} */({
-          url: place.icon,
-          size: new google.maps.Size(71, 71),
-          origin: new google.maps.Point(0, 0),
-          anchor: new google.maps.Point(17, 34),
-          scaledSize: new google.maps.Size(35, 35)
-        }));
-        marker.setPosition(place.geometry.location);
-        marker.setVisible(true);
-
-        var address = '';
-        if (place.address_components) {
-          address = [
-          (place.address_components[0] &&
-          place.address_components[0].short_name || ''),
-          (place.address_components[1] &&
-          place.address_components[1].short_name || ''),
-          (place.address_components[2] &&
-          place.address_components[2].short_name || '')
-          ].join(' ');
-        }
-
-        infowindow.setContent('<div><strong>' +
-          place.name + '</strong><br>' + address);
-          infowindow.open(map, marker);
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+          map: map,
+          anchorPoint: new google.maps.Point(0, -29)
         });
 
+        google.maps.event.addListener(autocomplete, 'place_changed', function()  {
+          infowindow.close();
+          marker.setVisible(false);
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            return;
+          }
 
-        // Sets a listener on a radio button to change the filter type on Places
-        // Autocomplete.
-        function setupClickListener(id, types) {
-          var radioButton = document.getElementById(id);
-          google.maps.event.addDomListener(radioButton, 'click', function() {
-            autocomplete.setTypes(types);
+          // If the place has a geometry, then present it on a map.
+          if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
+          }
+          marker.setIcon(/** @type {google.maps.Icon} */({
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(35, 35)
+          }));
+          marker.setPosition(place.geometry.location);
+          marker.setVisible(true);
+
+          var address = '';
+          if (place.address_components) {
+            address = [
+            (place.address_components[0] &&
+            place.address_components[0].short_name || ''),
+            (place.address_components[1] &&
+            place.address_components[1].short_name || ''),
+            (place.address_components[2] &&
+            place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+
+          infowindow.setContent('<div><strong>' +
+            place.name + '</strong><br>' + address);
+            infowindow.open(map, marker);
           });
+
+          // Sets a listener on a radio button to change the filter type on Places
+          // Autocomplete.
+          function setupClickListener(id, types) {
+            var radioButton = document.getElementById(id);
+            google.maps.event.addDomListener(radioButton, 'click', function() {
+              autocomplete.setTypes(types);
+            });
+          }
+
+          setupClickListener('changetype-all', []);
+          setupClickListener('changetype-address', ['address']);
+          setupClickListener('changetype-establishment', ['establishment']);
+          setupClickListener('changetype-geocode', ['geocode']);
         }
 
-        setupClickListener('changetype-all', []);
-        setupClickListener('changetype-address', ['address']);
-        setupClickListener('changetype-establishment', ['establishment']);
-        setupClickListener('changetype-geocode', ['geocode']);
-      }
+        <% if Rails.env.production? %>
+          <% source_string = 'https://maps.googleapis.com/maps/api/js?' +
+                              'key=AIzaSyAlgQ_SPQg1QnUHfbfpm-BJUy6N6A__U1M' +
+                              'libraries=places' +
+                              '&callback=initialize' %>
+        <% else %>
+          <% source_string =
+                'https://maps.googleapis.com/maps/api/js?callback=initialize' %>
+        <% end %>
 
-      <% if Rails.env.production? %>
-        <% source_string = 'https://maps.googleapis.com/maps/api/js?' +
-              'key=AIzaSyAlgQ_SPQg1QnUHfbfpm-BJUy6N6A__U1M' +
-              'libraries=places' +
-              '&callback=initialize' %>
-      <% else %>
-        <% source_string =
-        'https://maps.googleapis.com/maps/api/js?callback=initialize' %>
-      <% end %>
+        $(function () {
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = "<%= source_string %>";
+          document.body.appendChild(script);
+        })
 
-      $(function () {
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = "https://maps.googleapis.com/maps/api/js?callback=initialize";
-        document.body.appendChild(script);
-      })
-
-      // window.onload = loadScript;
-      // google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+        // window.onload = loadScript;
+        // google.maps.event.addDomListener(window, 'load', initialize);
+      </script>
     <% end %>
 </body>
 </html>
