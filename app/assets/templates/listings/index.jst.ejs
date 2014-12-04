@@ -1,20 +1,17 @@
-<div class='listings-index-title'>
-  <h2>All Listings</h2>
+<div>
+  <h2 class='listings-index-title'>All Listings</h2>
 </div>
 
-<ul class='listings'>
+<ul class="listings">
   <% listings.each(function (listing) { %>
-    <li class='listing'>
+    <li>
       <a href="#/listings/<%= listing.id %>">
-        <span class='shadow'></span>
-          <h4><%= listing.escape("title") %></h4>
-        <span class='details'>
-          <p><%= listing.escape("description") %></p>
-          <p><%= listing.escape("address") %></p><br>
-        </span>
+        <h3 class="show"><%= listing.escape("title") %></h3>
+        <h5 class="show"><%= listing.escape("description") %></h5>
+        <h5 class="show"><%= listing.escape("address") %></h5>
         <div>
-          <img class="img-responsive" src="<%= listing.get("image") %>"/>
-        </div><br>
+          <img class="image-show" src="<%= listing.get("image") %>"/>
+        </div><br><br><br>
       </a>
     </li>
   <% }); %>
