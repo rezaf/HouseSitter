@@ -10,9 +10,11 @@
           <h4><%= listing.escape("title") %></h4>
         <span class='details'>
           <p><%= listing.escape("description") %></p>
-          <p><%= listing.escape("address") %></p>
-          <br>
+          <p><%= listing.escape("address") %></p><br>
         </span>
+        <div>
+          <img class="img-responsive" src="<%= listing.get("image") %>"/>
+        </div><br>
       </a>
     </li>
   <% }); %>

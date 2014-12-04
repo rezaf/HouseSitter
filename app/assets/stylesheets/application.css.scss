@@ -38,7 +38,7 @@
 }
 
 body {
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 #map-canvas {
@@ -67,21 +67,29 @@ body {
 }
 
 .listings-index-title {
-  position: fixed;
+  position: relative;
   left: 0;
-  top: 50px;
+  top: 0px;
   padding-left: 40px;
+  padding-bottom: 50px;
 }
 
 .listings {
   position: fixed;
   left: 0;
-  top: 130px;
+  right: 0;
+  top: 120px;
   bottom: 0;
   width: 50%;
   overflow: auto;
 }
 
 .show {
-  left: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.image-show {
+  width: 100%;
+  height: auto;
 }

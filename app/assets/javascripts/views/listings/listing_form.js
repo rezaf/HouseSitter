@@ -29,7 +29,7 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     attrs.address = attrs['address-field'];
-    that = this;
+    var that = this;
 
     this.model.save(attrs, {
       success: function () {
