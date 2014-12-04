@@ -19,11 +19,18 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
     return this;
   },
 
+  upload: function () {
+    filepicker.pick(function(blob) {
+      return blob.url;
+    });
+  },
+
   submit: function (event) {
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     attrs.address = attrs['address-field'];
-
+    attrs.image = this.upload();
+    debugger
     that = this;
 
     this.model.save(attrs, {
