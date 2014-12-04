@@ -21,7 +21,7 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
 
   upload: function () {
     filepicker.pick(function(blob) {
-      this.model.set({ image: blob.url })
+      this.model.set({ image: blob.url });
     }.bind(this));
   },
 
