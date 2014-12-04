@@ -6,19 +6,31 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
     this.listenTo(this.collection, 'sync', this.render);
   },
 
-  setIcon: function (latitude, longitude) {
-    var myLatlng = new google.maps.LatLng(latitude, longitude);
+  setIcon: function (listOfLocationsForMarkers) {
+    var myLatlng = new google.maps.LatLng(37.77, -122.42);
     var mapOptions = {
       zoom: 14,
       center: myLatlng
     }
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-    // To add the marker to the map, use the 'map' property
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map
-    });
+    var infowindow = new google.maps.InfoWindow(), marker, i;
+
+    for (var i = 0; i < listOfLocationsForMarkers.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(
+          listOfLocationsForMarkers[i][1],
+          listOfLocationsForMarkers[i][2]),
+        map: map
+      });
+      google.maps.event.addListener(listOfLocationsForMarkers,
+        'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(listOfLocationsForMarkers[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
   },
 
   render: function () {
@@ -26,15 +38,17 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
       listings: this.collection
     });
     var that = this;
+    var listOfLocationsForMarkers = [];
+
     this.collection.each(function(model) {
+      var title = model.attributes.title;
       var latitude = model.attributes.latitude;
       var longitude = model.attributes.longitude;
-      if (!_.isNull(latitude) && !_.isNull(longitude)) {
-        console.log(latitude);
-        console.log(longitude);
-        that.setIcon(latitude, longitude);
+      if (!_.isNull(title) && !_.isNull(longitude)) {
+        listOfLocationsForMarkers.push([title, latitude, longitude]);
       }
     });
+    this.setIcon(listOfLocationsForMarkers);
     this.$el.html(renderedContent);
     return this;
   }
