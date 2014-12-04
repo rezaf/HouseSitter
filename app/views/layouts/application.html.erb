@@ -58,7 +58,6 @@
     </div>
   </nav>
 
-
   <div id="map-canvas"></div>
 
   <%= yield %>
@@ -134,17 +133,6 @@
           infowindow.setContent('<div><strong>' +
             place.name + '</strong><br>' + address);
             infowindow.open(map, marker);
-          });
-        }
-
-        function codeAddress(passed_address) {
-          var address = passed_address;
-          geocoder.geocode( { 'address': address }, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-              var position = results[0].geometry.location;
-            } else {
-              alert('Geocode was not successful for the following reason: ' + status);
-            }
           });
         }
 
