@@ -77,7 +77,6 @@
           zoom: 13
         };
 
-        geocoder = new google.maps.Geocoder();
         var map = new google.maps.Map(document.getElementById('map-canvas'),
                                     mapOptions);
 
@@ -115,8 +114,12 @@
             anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(35, 35)
           }));
+
           marker.setPosition(place.geometry.location);
           marker.setVisible(true);
+
+          latitude = place.geometry.location.k;
+          longitude = place.geometry.location.B;
 
           var address = '';
           if (place.address_components) {
