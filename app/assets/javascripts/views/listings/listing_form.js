@@ -27,9 +27,9 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
 
   submit: function (event) {
     event.preventDefault();
-    // codeAddress();
     var attrs = this.$el.serializeJSON();
     attrs.address = attrs['address-field'];
+    attrs.coordinates = codeAddress(attrs.address);
     var that = this;
 
     this.model.save(attrs, {
