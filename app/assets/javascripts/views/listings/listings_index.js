@@ -27,7 +27,15 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
       });
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent(listOfLocationsForMarkers[i][0]);
+          var contentString = '<div id="content">' +
+                                '<a href=#/listings/' +
+                                  listOfLocationsForMarkers[i][3] +
+                                '>' +
+                                listOfLocationsForMarkers[i][0] +
+                                '</a>' +
+                              '</div>';
+
+          infowindow.setContent(contentString);
           infowindow.open(map, marker);
         }
       })(marker, i));
@@ -42,11 +50,12 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
     var listOfLocationsForMarkers = [];
 
     this.collection.each(function(model) {
+      var id = model.attributes.id;
       var title = model.attributes.title;
       var latitude = model.attributes.latitude;
       var longitude = model.attributes.longitude;
       if (!_.isNull(title) && !_.isNull(longitude)) {
-        listOfLocationsForMarkers.push([title, latitude, longitude]);
+        listOfLocationsForMarkers.push([title, latitude, longitude, id]);
       }
     });
     this.setIcon(listOfLocationsForMarkers);
