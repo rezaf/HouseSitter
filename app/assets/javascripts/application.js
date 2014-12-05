@@ -16,6 +16,8 @@
 //= require backbone
 //= require bootstrap
 //= require serializejson
+//= require moment
+//= require bootstrap-datetimepicker
 //= require house_sitter
 //= require_tree ../templates
 //= require_tree ./models
