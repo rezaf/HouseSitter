@@ -52,7 +52,15 @@ module Api
     private
     def listing_params
       params.require(:listing).
-        permit(:title, :description, :address, :image, :latitude, :longitude)
+        permit(:title,
+                :description,
+                :address,
+                :image,
+                :latitude,
+                :longitude,
+                :start_date,
+                :end_date
+        )
     end
   end
 end
