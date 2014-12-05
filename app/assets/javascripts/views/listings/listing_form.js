@@ -3,7 +3,7 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
   template: JST['listings/form'],
 
   events: {
-    'click button': 'submit',
+    'click #submit-btn': 'submit',
     'click #image-upload': 'upload'
   },
 

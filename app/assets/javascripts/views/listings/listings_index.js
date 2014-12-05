@@ -60,6 +60,7 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
     });
     this.setIcon(listOfLocationsForMarkers);
     this.$el.html(renderedContent);
+    $('#map-canvas').addClass('animated flip');
     return this;
   }
 });
