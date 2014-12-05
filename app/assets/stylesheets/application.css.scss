@@ -71,20 +71,34 @@ body {
   position: relative;
   left: 0;
   top: 0px;
-  padding-left: 40px;
-  padding-bottom: 50px;
+  width: 50%;
+  padding-left: 60px;
+  padding-bottom: 30px;
 }
 
 .listings {
   position: fixed;
   left: 0;
   right: 0;
+  margin-top: 100px;
   top: 60px;
   bottom: 0;
   width: 50%;
   overflow: auto;
   padding-left: 0;
 }
+
+.listings2 {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 50px;
+  bottom: 0;
+  width: 50%;
+  overflow: auto;
+  padding-left: 0;
+}
+
 
 .show {
   margin-left: 50px;
