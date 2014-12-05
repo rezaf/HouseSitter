@@ -9,22 +9,23 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
   setIcon: function (listOfLocationsForMarkers) {
     var myLatlng = new google.maps.LatLng(37.77, -122.42);
     var mapOptions = {
-      zoom: 14,
+      zoom: 13,
       center: myLatlng
-    }
+    };
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
     var infowindow = new google.maps.InfoWindow(), marker, i;
 
-    for (var i = 0; i < listOfLocationsForMarkers.length; i++) {
+    for (i = 0; i < listOfLocationsForMarkers.length; i++) {
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(
           listOfLocationsForMarkers[i][1],
-          listOfLocationsForMarkers[i][2]),
+          listOfLocationsForMarkers[i][2]
+        ),
+        animation: google.maps.Animation.DROP,
         map: map
       });
-      google.maps.event.addListener(listOfLocationsForMarkers,
-        'click', (function(marker, i) {
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
           infowindow.setContent(listOfLocationsForMarkers[i][0]);
           infowindow.open(map, marker);
