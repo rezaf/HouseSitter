@@ -38,6 +38,46 @@
     ></br>
   </div>
 
+  <div class="container">
+    <div class="col-sm-6" style="height:75px;">
+      <div class='col-md-5'>
+        <div class="form-group">
+          <div class='input-group date' id='datetimepicker9'>
+            <input type='text' class="form-control" />
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar">
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class='col-md-5'>
+        <div class="form-group">
+          <div class='input-group date' id='datetimepicker10'>
+            <input type='text' class="form-control" />
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar">
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function () {
+        $('#datetimepicker9').datetimepicker();
+        $('#datetimepicker10').datetimepicker();
+        $("#datetimepicker9").on("dp.change",function (e) {
+          $('#datetimepicker10').data("DateTimePicker").setMinDate(e.date);
+        });
+        $("#datetimepicker10").on("dp.change",function (e) {
+          $('#datetimepicker9').data("DateTimePicker").setMaxDate(e.date);
+        });
+      });
+    </script>
+  </div>
+
   <div class="form-group">
     <a class="btn btn-primary" type="submit" id="image-upload">
       Upload Image
