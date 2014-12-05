@@ -3,6 +3,7 @@
 <head>
   <title>HouseSitter</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag "animate.min.css" %>
   <%= javascript_include_tag 'application' %>
   <%= filepicker_js_include_tag %>
   <%= csrf_meta_tags %>
@@ -15,7 +16,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top animated rubberBand">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsable">
