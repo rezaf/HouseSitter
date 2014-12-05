@@ -6,9 +6,9 @@
     <dt>Address</dt>
     <dd><%= listing.escape('address') %></dd><br>
     <dt >Start date</dt>
-    <dd class="date"><%= listing.escape('start_date') %></dd><br>
+    <dd class="datetime-local"><%= moment(listing.escape('start_date')).format('MMMM Do YYYY') %></dd><br>
     <dt>End date</dt>
-    <dd class="date"><%= listing.escape('end_date') %></dd><br>
+    <dd class="datetime-local"><%= moment(listing.escape('end_date')).format('MMMM Do YYYY') %></dd><br>
   </dl>
   <div>
     <img class="image-show" src="<%= listing.get("image") %>"/><br>
