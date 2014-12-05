@@ -10,10 +10,8 @@
     <dt>End date</dt>
     <dd class="datetime-local"><%= moment(listing.escape('end_date')).format('MMMM Do YYYY') %></dd><br>
   </dl>
-  <div id="fd-wrapper" class="fd-wrapper">
-    <img class="image-show"
-          data-bgimg="<%= listing.get("image") %>"
-          src="<%= listing.get("image") %>"/><br>
+  <div>
+    <img class="image-show" src="<%= listing.get("image") %>"/><br>
   </div>
   <h2><a class="btn btn-info show" href='#/'>Back</a></h2>
 </div>
