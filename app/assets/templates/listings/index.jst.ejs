@@ -5,9 +5,7 @@
     <% listings.each(function (listing) { %>
       <li>
         <a href="#/listings/<%= listing.id %>">
-          <h3 class="show"><%= listing.escape("title") %></h3>
-          <h5 class="show"><%= listing.escape("description") %></h5>
-          <h5 class="show"><%= listing.escape("address") %></h5>
+          <h3 class="show"><%= listing.escape("title") %></h3><br>
           <div>
             <img class="image-show" src="<%= listing.get("image") %>"/>
           </div><br><br><br>
