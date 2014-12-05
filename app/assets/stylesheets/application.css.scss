@@ -108,4 +108,24 @@ body {
 .image-show {
   width: 100%;
   height: auto;
+  transition: all 1s ease;
+  -webkit-filter: brightness(80%);
+}
+
+.image-show:hover {
+  -webkit-filter: brightness(100%);
+}
+
+#front-page {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 55px;
+  width: 100%;
+  -webkit-filter: grayscale(100%);
+  transition: all 4s ease;
+}
+
+#front-page:hover {
+  -webkit-filter: grayscale(0%);
 }
