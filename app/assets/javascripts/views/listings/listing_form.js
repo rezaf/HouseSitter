@@ -12,6 +12,7 @@ HouseSitter.Views.ListingsForm = Backbone.View.extend({
   },
 
   render: function () {
+    $("#navbar-nav").switchClass('fadeInDown', 'flip');
     var renderedContent = this.template({
       listing: this.model
     });

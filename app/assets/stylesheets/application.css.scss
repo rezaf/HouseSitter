@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require jquery-ui
  *= require_tree .
  *= require_self
  */
@@ -28,8 +29,6 @@
 
 .navbar-nav {
   padding-top: 5px;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
 }
 
 #sign-ins {
@@ -52,9 +51,6 @@ body {
   bottom: 0;
   width: 50%;
   padding: 20%;
-  animation-duration: 3s;
-  animation-delay: 5s;
-  animation-iteration-count: 1;
 }
 
 #map-canvas:empty {
