@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-default navbar-fixed-top animated flip">
+  <nav class="navbar navbar-default navbar-fixed-top animated fadeInDown">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsable">
@@ -33,6 +33,7 @@
           <ul class="nav navbar-nav navbar-right" id="sign-ins">
             <%= link_to '<button type="button" class="btn btn-primary btn-sm">Sign Up</button>'.html_safe, new_user_url %>
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" href="#signinModal">Sign In</button>
+            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" href="#signinModal">Guest Sign In</button>
           </ul>
           <img id="front-page" src="https://www.filepicker.io/api/file/d8KascXSxMuFfaWsL4gg"/>
         <% else %>
