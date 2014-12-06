@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
-    @credentials = {}
-    @trigger_modal = false
+    @user = User.new
+    render :new
   end
 
   def create
@@ -14,10 +14,15 @@ class SessionsController < ApplicationController
       redirect_to root_url
     else
       flash.now[:errors] = ["Invalid username and/or password."]
-      @credentials = { username: params[:user][:username] }
-      @trigger_modal = true
+      @user = User.new({username: params[:user][:username]})
       render :new
     end
+  end
+
+  def guest_login
+    @user = User.find_by_credentials("Guest", "GuestPassword")
+    sign_in!(@user)
+    redirect_to root_url
   end
 
   def destroy
