@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
 
-  post '/guest_login', to: 'sessions#guest_login', as: 'guest_login'
+  post '/guest_sign_in', to: 'sessions#guest_sign_in', as: 'guest_sign_in'
 
   namespace :api, defaults: { format: :json } do
     resources :listings, except: [:new, :edit]

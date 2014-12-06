@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def guest_login
+  def guest_sign_in
     @user = User.find_by_credentials("Guest", "GuestPassword")
     sign_in!(@user)
     redirect_to root_url
