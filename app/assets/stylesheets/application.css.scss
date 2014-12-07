@@ -20,7 +20,7 @@
  @import "bootstrap-datetimepicker";
 
 #logo {
-  zoom: 50%;
+  height: 29px;
 }
 
 #user-status {
@@ -29,14 +29,19 @@
 
 .navbar-nav {
   padding-top: 5px;
+  opacity: 1;
 }
 
-#sign-ins {
+.sign-ins {
   padding: 10px 20px 10px 20px;
 }
 
-#sign-ins * {
-  margin: 2px;
+.sign-ins li {
+  margin-right: 5px;
+}
+
+.sign-ins li:last-child {
+  margin-right: 0;
 }
 
 body {
@@ -117,13 +122,18 @@ body {
 }
 
 #front-page {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
-  top: 55px;
-  width: 100%;
+  top:0;
+  bottom:0;
+
+  background-image: url(https://www.filepicker.io/api/file/d8KascXSxMuFfaWsL4gg);
+
+  background-size: cover;
+  background-position: 50% 50%;
   -webkit-filter: grayscale(100%);
-  transition: all 4s ease;
+  transition: all 3s ease;
 }
 
 #front-page:hover {

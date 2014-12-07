@@ -30,26 +30,33 @@
 
       <div class="collapse navbar-collapse" id="navbar-collapsable">
         <% unless signed_in? %>
-          <ul class="nav navbar-nav navbar-right" id="sign-ins">
-            <button
-              type="button"
-              class="btn btn-primary btn-sm"
-              data-toggle="modal"
-              data-target="#signupModal">
-              Sign Up
+          <ul class="nav navbar-nav navbar-right sign-ins">
+            <li>
+              <button
+                type="button"
+                class="btn btn-primary btn-sm"
+                data-toggle="modal"
+                data-target="#signupModal">
+                Sign Up
               </button>
-            <button
-              type="button"
-              class="btn btn-primary btn-sm"
-              data-toggle="modal"
-              data-target="#signinModal">
-              Sign In
-            </button>
-            <%= button_to 'Guest Sign In',
+            </li>
+            <li>
+              <button
+                type="button"
+                class="btn btn-primary btn-sm"
+                data-toggle="modal"
+                data-target="#signinModal">
+                Sign In
+              </button>
+            </li>
+            <li>
+              <%= button_to 'Guest Sign In',
               guest_sign_in_url,
-              method: 'POST' %>
+              method: :post,
+              class: 'btn btn-success btn-sm' %>
+            </li>
           </ul>
-          <img id="front-page" src="https://www.filepicker.io/api/file/d8KascXSxMuFfaWsL4gg"/>
+
         <% else %>
           <div class="nav navbar-nav">
             <form class="navbar-form" action="#listings/new" method="get">
