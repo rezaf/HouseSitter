@@ -58,7 +58,7 @@ body {
   right: 0;
   top: 60px;
   bottom: 0;
-  width: 50%;
+  width: 45%;
   padding: 20%;
 }
 
@@ -72,7 +72,7 @@ body {
   left: 0;
   top: 45px;
   bottom: 0;
-  width: 50%;
+  width: 55%;
   overflow: auto;
   padding: 20px 40px 40px 40px;
   border: none;
@@ -82,24 +82,25 @@ body {
   position: fixed;
   left: 0;
   top: 20px;
-  width: 50%;
+  width: 55%;
   padding-left: 60px;
   padding-top: 17px;
   padding-bottom: 20px;
-  background: grey;
-
+  background-color: aliceblue;
+  border: 1px lightblue;
 }
 
 .listings {
   position: fixed;
   left: 0;
   right: 0;
-  margin-top: 64px;
+  margin-top: 70px;
   top: 60px;
   bottom: 0;
-  width: 50%;
+  width: 55%;
   overflow: auto;
   padding-left: 0;
+
 }
 
 .listings2 {
@@ -121,6 +122,7 @@ body {
 .image-show {
   width: 100%;
   height: auto;
+  margin-bottom: -30px;
   transition: all 1s ease;
   -webkit-filter: brightness(80%);
 }
