@@ -31,6 +31,7 @@
 
 .navbar {
   padding: 5px;
+  margin-bottom: 50px;
   background: rgba(255, 255, 255, 0.5);
   border: none;
 }
@@ -55,7 +56,7 @@ body {
   position: absolute;
   border: solid 1px darkgrey;
   right: 0;
-  top: 56px;
+  top: 60px;
   bottom: 0;
   width: 50%;
   padding: 20%;
@@ -69,27 +70,28 @@ body {
   position: fixed;
   border: solid 1px darkgrey;
   left: 0;
-  top: 40px;
+  top: 45px;
   bottom: 0;
   width: 50%;
   overflow: auto;
-  padding: 40px;
+  padding: 20px 40px 40px 40px;
+  border: none;
 }
 
 .listings-index-title {
-  position: relative;
+  position: fixed;
   left: 0;
-  top: 0px;
+  top: 30px;
   width: 50%;
   padding-left: 60px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .listings {
   position: fixed;
   left: 0;
   right: 0;
-  margin-top: 100px;
+  margin-top: 64px;
   top: 60px;
   bottom: 0;
   width: 50%;
