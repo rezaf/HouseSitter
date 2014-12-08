@@ -109,7 +109,7 @@ body {
   right: 0;
   top: 50px;
   bottom: 0;
-  width: 50%;
+  width: 55%;
   overflow: auto;
   padding-left: 0;
 }
@@ -151,4 +151,14 @@ body {
 #new_listing_btn {
   position: relative;
   left: 200px;
+}
+
+.btn.btn-info.show {
+  position: absolute;
+  width: 80%;
+  margin: 40px 40px 40px 50px;
+}
+
+.dl-horizontal {
+  margin-right: 65px;
 }
