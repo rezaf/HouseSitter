@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new
+    gon.trigger = true
     @user = User.new
   end
 
