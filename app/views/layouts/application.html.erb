@@ -33,15 +33,15 @@
           <ul class="nav navbar-nav navbar-right sign-ins">
             <li>
               <%= button_to 'Sign Up',
-              users_url,
-              method: :post,
+              new_user_url,
+              method: :get,
               class: 'btn btn-primary btn-sm',
               data: { toggle: "modal", target: "#signupModal" } %>
             </li>
             <li>
               <%= button_to 'Sign In',
-              session_url,
-              method: :post,
+              new_session_url,
+              method: :get,
               class: 'btn btn-primary btn-sm',
               data: {toggle: "modal", target: "#signinModal"} %>
             </li>
