@@ -1,6 +1,4 @@
-<%= action = signup ? '/users' : '/session' %>
-
-<form action="<%= action %>" method="post">
+<form action="<%= session_url %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="form-group">
     <label>Username</label><br>
@@ -8,28 +6,15 @@
             placeholder="Username"
             name="user[username]"
             value="<%= @user[:username] %>"
-            class="form-control"
-    >
+            class="form-control">
   </div>
-
-  <% if signup %>
-    <div class="form-group">
-      <label>Email</label><br>
-      <input class="form-control"
-        placeholder="Email"
-        type= "email"
-        name="user[email]"
-        value="<%= @user.email %>">
-    </div>
-  <% end %>
 
   <div class="form-group">
     <label>Password</label><br>
     <input class="form-control"
             placeholder="Password"
             type= "password"
-            name="user[password]"
-    >
+            name="user[password]">
   </div>
   <div class="form-group">
     <input class="btn btn-primary" type="submit" value="Submit"><br>

@@ -1,21 +1,21 @@
 <div id="front-page"></div>
 
-<div class="modal fade" id="signinModal">
+<div class="modal fade" id="signupModal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">
           <span>&times;</span>
         </button>
-        <h4 class="modal-title">Sign In</h4>
+        <h4 class="modal-title">Sign Up</h4>
       </div>
       <div class="modal-body">
-        <% unless flash[:errors].nil? %>
-          <div class="alert alert-danger">
-            <p><%= flash[:errors].first %></p>
-          </div>
+        <% unless @user.errors.full_messages == [] %>
+        <div class="alert alert-danger">
+          <p><%= @user.errors.full_messages.first %></p>
+        </div>
         <% end %>
-        <%= render partial: "form", locals: { signup: false } %>
+        <%= render partial: "form", locals: { signup: true } %>
       </div>
     </div>
   </div>
