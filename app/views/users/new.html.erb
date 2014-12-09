@@ -1,15 +1,4 @@
 <div id="front-page"></div>
-<%= include_gon %>
-
-<script type="text/javascript">
-  var trigger = gon.trigger || false;
-  debugger
-  if (trigger) {
-    $(window).load(function() {
-      $('#signupModal').modal('show');
-    });
-  }
-</script>
 
 <div class="modal fade" id="signupModal">
   <div class="modal-dialog">
