@@ -32,24 +32,32 @@
         <% unless signed_in? %>
           <ul class="nav navbar-nav navbar-right sign-ins">
             <li>
-              <%= button_to 'Sign Up',
-              new_user_url,
-              method: :get,
-              class: 'btn btn-primary btn-sm',
-              data: { toggle: "modal", target: "#signupModal" } %>
+              <% unless current_page?('/users/new') %>
+                <%= button_to 'Sign Up',
+                    new_user_url,
+                    method: :get,
+                    class: 'btn btn-primary btn-sm',
+                    data: { toggle: "modal",
+                            target: "#signupModal" } %>
+              <% else %>
+                  <button type="button"
+                          class="btn btn-primary btn-sm"
+                          data-toggle="modal"
+                          href="#signupModal">Sign Up</button>
+              <% end %>
             </li>
             <li>
               <%= button_to 'Sign In',
-              new_session_url,
-              method: :get,
-              class: 'btn btn-primary btn-sm',
-              data: {toggle: "modal", target: "#signinModal"} %>
+                  new_session_url,
+                  method: :get,
+                  class: 'btn btn-primary btn-sm',
+                  data: {toggle: "modal", target: "#signinModal"} %>
             </li>
             <li>
               <%= button_to 'Guest Sign In',
-              guest_sign_in_url,
-              method: :post,
-              class: 'btn btn-success btn-sm' %>
+                  guest_sign_in_url,
+                  method: :post,
+                  class: 'btn btn-success btn-sm' %>
             </li>
           </ul>
 
