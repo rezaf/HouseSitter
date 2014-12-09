@@ -7,7 +7,7 @@
   <%= filepicker_js_include_tag %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'new_favicon.ico' %>
-  
+
   <% if Rails.env.production? %>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlgQ_SPQg1QnUHfbfpm-BJUy6N6A__U1M&v=3.exp&libraries=places"></script>
   <% else %>
@@ -32,42 +32,9 @@
       <div class="collapse navbar-collapse" id="navbar-collapsable">
         <% unless signed_in? %>
           <ul class="nav navbar-nav navbar-right sign-ins">
-            <li>
-              <% unless current_page?('/users/new') %>
-                <%= button_to 'Sign Up',
-                    new_user_url,
-                    method: :get,
-                    class: 'btn btn-primary btn-sm',
-                    data: { toggle: "modal",
-                            target: "#signupModal" } %>
-              <% else %>
-                  <button type="button"
-                          class="btn btn-primary btn-sm"
-                          data-toggle="modal"
-                          href="#signupModal">Sign Up</button>
-              <% end %>
-            </li>
-            <li>
-              <% unless current_page?('/session/new') %>
-                <%= button_to 'Sign In',
-                      new_session_url,
-                      method: :get,
-                      class: 'btn btn-primary btn-sm',
-                      data: { toggle: "modal",
-                              target: "#signinModal" } %>
-              <% else %>
-                <button type="button"
-                        class="btn btn-primary btn-sm"
-                        data-toggle="modal"
-                        href="#signinModal">Sign In</button>
-              <% end %>
-            </li>
-            <li>
-              <%= button_to 'Guest Sign In',
-                    guest_sign_in_url,
-                    method: :post,
-                    class: 'btn btn-success btn-sm' %>
-            </li>
+            <li><%= link_to '<button type="button" class="btn btn-primary btn-sm">Sign Up</button>'.html_safe, new_user_url %></li>
+            <li><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" href="#signinModal">Sign In</button></li>
+            <li><%= button_to 'Guest Sign In', guest_sign_in_url, method: :post, class: 'btn btn-success btn-sm' %></li>
           </ul>
 
         <% else %>

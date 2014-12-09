@@ -10,8 +10,6 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
-      @user = User.new({username: params[:user][:username]},
-                        {email: params[:user][:email]})
       render :new
     end
   end
