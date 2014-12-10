@@ -26,13 +26,13 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
         map: map
       });
 
-      google.maps.event.addListener(marker, 'click', function() {
-        if (marker.getAnimation() != null) {
-          marker.setAnimation(null);
-        } else {
-          marker.setAnimation(google.maps.Animation.BOUNCE);
-        }
-      });
+      // google.maps.event.addListener(marker, 'mouseover', function() {
+      //   if (marker.getAnimation() == null || this.marker.getAnimation() == 2) {
+      //     marker.setAnimation(google.maps.Animation.BOUNCE);
+      //   } else {
+      //     marker.setAnimation(null);
+      //   }
+      // });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
