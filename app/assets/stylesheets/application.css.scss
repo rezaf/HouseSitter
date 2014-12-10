@@ -148,9 +148,9 @@ body {
   transition: all 3s ease;
 }
 
-// #front-page:hover {
-//   -webkit-filter: grayscale(0%);
-// }
+#front-page:hover {
+  -webkit-filter: grayscale(0%);
+}
 
 #new_listing_btn {
   position: relative;
