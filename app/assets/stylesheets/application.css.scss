@@ -41,11 +41,16 @@
 }
 
 .sign-ins li {
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .sign-ins li:last-child {
   margin-right: 0;
+}
+
+#signupbtn {
+  top: -15px;
+  right: -15px;
 }
 
 body {
@@ -100,7 +105,6 @@ body {
   width: 55%;
   overflow: auto;
   padding-left: 0;
-
 }
 
 .listings2 {

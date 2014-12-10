@@ -32,11 +32,10 @@
       <div class="collapse navbar-collapse" id="navbar-collapsable">
         <% unless signed_in? %>
           <ul class="nav navbar-nav navbar-right sign-ins">
-            <li><%= link_to '<button type="button" class="btn btn-primary btn-sm">Sign Up</button>'.html_safe, new_user_url %></li>
+            <li id="signupbtn"><%= link_to '<button type="button" class="btn btn-primary btn-sm">Sign Up</button>'.html_safe, new_user_url %></li>
             <li><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" href="#signinModal">Sign In</button></li>
             <li><%= button_to 'Guest Sign In', guest_sign_in_url, method: :post, class: 'btn btn-success btn-sm' %></li>
           </ul>
-
         <% else %>
           <div class="nav navbar-nav" id="new_listing_btn">
             <form class="navbar-form" action="#listings/new" method="get">
