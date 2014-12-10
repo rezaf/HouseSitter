@@ -1,7 +1,7 @@
 <div id="front-page"></div>
 
 <script type="text/javascript">
-  $(window).load(function(){
+  $(window).load(function() {
     $('#signupModal').modal('show');
   });
 </script>
@@ -21,7 +21,7 @@
           <p><%= @user.errors.full_messages.first %></p>
         </div>
         <% end %>
-        <%= render partial: "form", locals: { signup: true } %>
+        <%= render partial: "form" %>
       </div>
     </div>
   </div>

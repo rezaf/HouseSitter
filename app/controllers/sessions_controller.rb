@@ -1,10 +1,11 @@
 class SessionsController < ApplicationController
   def new
     @credentials = {}
+    @trigger_modal = false
   end
 
   def create
-    @user = User.find_by_credentials( params[:user][:username],
+    @user = User.find_by_credentials(params[:user][:username],
                                       params[:user][:password])
 
     if @user
@@ -13,6 +14,7 @@ class SessionsController < ApplicationController
     else
       flash.now[:errors] = ["Invalid username and/or password."]
       @credentials = { username: params[:user][:username] }
+      @trigger_modal = true
       render :new
     end
   end

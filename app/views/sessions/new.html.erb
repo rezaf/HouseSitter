@@ -1,5 +1,13 @@
 <div id="front-page"></div>
 
+<% if @trigger_modal %>
+  <script type="text/javascript">
+    $(window).load(function(){
+      $('#signinModal').modal('show');
+    });
+  </script>
+<% end %>
+
 <div class="modal fade" id="signinModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -15,7 +23,7 @@
             <p><%= flash[:errors].first %></p>
           </div>
         <% end %>
-        <%= render partial: "form", locals: { signup: false } %>
+        <%= render partial: "form" %>
       </div>
     </div>
   </div>
