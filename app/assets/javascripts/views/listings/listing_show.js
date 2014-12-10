@@ -17,7 +17,8 @@ HouseSitter.Views.ListingShow = Backbone.View.extend({
     // To add the marker to the map, use the 'map' property
     var marker = new google.maps.Marker({
       position: myLatlng,
-      map: map
+      map: map,
+      animation: google.maps.Animation.DROP
     });
   },
 

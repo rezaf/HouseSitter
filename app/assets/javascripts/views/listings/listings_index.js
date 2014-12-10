@@ -12,8 +12,8 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
       zoom: 12,
       center: myLatlng
     };
-    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     var infowindow = new google.maps.InfoWindow(), marker, i;
 
     for (i = 0; i < listOfLocationsForMarkers.length; i++) {
@@ -25,6 +25,16 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
         animation: google.maps.Animation.DROP,
         map: map
       });
+
+      $('.listings').hover(
+        function() {
+          alert("here");
+          // marker.setAnimation(google.maps.Animation.BOUNCE);
+        }, function() {
+          // marker.setAnimation(null);
+        }
+      );
+
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
           var contentString = '<div id="content">' +
