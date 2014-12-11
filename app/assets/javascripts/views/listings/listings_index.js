@@ -2,8 +2,21 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
 
   template: JST['listings/index'],
 
+  events: {
+    'mouseover .show': 'toggleBounce',
+  },
+
   initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
+  },
+
+  toggleBounce: function (event) {
+    console.log(event);
+    // if (marker.getAnimation() != null) {
+    //   marker.setAnimation(null);
+    // } else {
+    //   marker.setAnimation(google.maps.Animation.BOUNCE);
+    // }
   },
 
   setIcon: function (listOfLocationsForMarkers) {
@@ -16,7 +29,8 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     var infowindow = new google.maps.InfoWindow(), marker, i;
 
-    for (i = 0; i < listOfLocationsForMarkers.length; i++) {
+    for (var i = 0; i < listOfLocationsForMarkers.length; i++) {
+
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(
           listOfLocationsForMarkers[i][1],
@@ -25,14 +39,6 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
         animation: google.maps.Animation.DROP,
         map: map
       });
-
-      // google.maps.event.addListener(marker, 'mouseover', function() {
-      //   if (marker.getAnimation() == null || this.marker.getAnimation() == 2) {
-      //     marker.setAnimation(google.maps.Animation.BOUNCE);
-      //   } else {
-      //     marker.setAnimation(null);
-      //   }
-      // });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
@@ -67,8 +73,8 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
         listOfLocationsForMarkers.push([title, latitude, longitude, id]);
       }
     });
-    this.setIcon(listOfLocationsForMarkers);
+
     this.$el.html(renderedContent);
     return this;
-  }
+  },
 });
