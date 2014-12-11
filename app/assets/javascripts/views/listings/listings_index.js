@@ -4,22 +4,15 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
 
   events: {
     'mouseover .show': 'toggleBounce',
+    'mouseout .show': 'toggleBounce'
   },
 
   initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
   },
 
-  toggleBounce: function (event) {
-    console.log(event);
-    // if (marker.getAnimation() != null) {
-    //   marker.setAnimation(null);
-    // } else {
-    //   marker.setAnimation(google.maps.Animation.BOUNCE);
-    // }
-  },
-
   setIcon: function (listOfLocationsForMarkers) {
+    markers = [];
     var myLatlng = new google.maps.LatLng(37.77, -122.42);
     var mapOptions = {
       zoom: 12,
@@ -37,7 +30,8 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
           listOfLocationsForMarkers[i][2]
         ),
         animation: google.maps.Animation.DROP,
-        map: map
+        map: map,
+        title: listOfLocationsForMarkers[i][0]
       });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -54,6 +48,24 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
           infowindow.open(map, marker);
         }
       })(marker, i));
+      marker.setMap(map);
+      markers.push(marker);
+    }
+  },
+
+  toggleBounce: function (event) {
+    var title = event.currentTarget.textContent;
+
+    for(var j = 0; j < markers.length; j++) {
+      if (markers[j].title == title) {
+        marker = markers[j];
+      }
+    }
+
+    if (marker.getAnimation() != null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
     }
   },
 
@@ -73,7 +85,7 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
         listOfLocationsForMarkers.push([title, latitude, longitude, id]);
       }
     });
-
+    this.setIcon(listOfLocationsForMarkers);
     this.$el.html(renderedContent);
     return this;
   },

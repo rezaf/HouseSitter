@@ -4,7 +4,7 @@
   <ul class="listings">
     <% listings.each(function (listing) { %>
       <li>
-        <a href="#/listings/<%= listing.id %>">
+        <a class="listing2" href="#/listings/<%= listing.id %>">
           <h3 class="show"><%= listing.escape("title") %></h3><br>
           <div>
             <img class="image-show" src="<%= listing.get("image") %>"/>
