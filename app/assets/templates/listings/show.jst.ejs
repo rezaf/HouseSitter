@@ -11,7 +11,6 @@
     <dd class="datetime-local"><%= moment(listing.escape('end_date')).format('MMMM Do YYYY') %></dd><br>
   </dl>
   <div>
-    <img class="image-show" src="<%= listing.get("image") %>"/><br>
+    <img class="image-show" src="<%= listing.escape("image") %>"/><br>
   </div>
-  <h2><a class="btn btn-info show" href='#/'>Back</a></h2>
 </div>

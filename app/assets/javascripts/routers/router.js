@@ -11,6 +11,7 @@ HouseSitter.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
+    $("#back-btn").remove();
     HouseSitter.Collections.listings.fetch();
     var indexView = new HouseSitter.Views.ListingsIndex({
       collection: HouseSitter.Collections.listings
@@ -30,6 +31,7 @@ HouseSitter.Routers.Router = Backbone.Router.extend({
   },
 
   show: function (id) {
+    $('#new_listing_btn').append('<a class="btn btn-success" id="back-btn" href="#/">Back</a>');
     var listing = HouseSitter.Collections.listings.getOrFetch(id);
     var formView = new HouseSitter.Views.ListingShow({ model: listing });
     this._swapView(formView);

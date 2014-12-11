@@ -166,3 +166,11 @@ body {
 .dl-horizontal {
   margin-right: 65px;
 }
+
+#back-btn {
+  position: fixed;
+  display: inline-block;
+  top: 13px;
+  left: 400px;
+  width: 150px;
+}
