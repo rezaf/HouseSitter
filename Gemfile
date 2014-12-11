@@ -17,7 +17,7 @@ gem 'bootstrap-sass'
 gem 'filepicker-rails'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
-gem 'gon'
+gem 'seed_dump'
 
 gem 'byebug', group: [:development, :test]
 
