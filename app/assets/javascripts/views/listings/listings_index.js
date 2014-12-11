@@ -13,7 +13,7 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
 
   setIcon: function (listOfLocationsForMarkers) {
     markers = [];
-    var myLatlng = new google.maps.LatLng(37.77, -122.42);
+    var myLatlng = new google.maps.LatLng(37.77, -122.44);
     var mapOptions = {
       zoom: 12,
       center: myLatlng
