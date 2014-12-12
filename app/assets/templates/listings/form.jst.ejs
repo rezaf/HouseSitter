@@ -41,10 +41,11 @@
   <div class="form-group">
     <label for="contact_email">Contact email</label><br>
     <input class="form-control"
-      id="ce-input"
+      id="contact_email"
       type="email"
       name="contact_email"
       placeholder="Contact email"
+      value='<%= listing.escape('contact_email') %>'
     ></br>
   </div>
 
