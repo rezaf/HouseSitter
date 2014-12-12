@@ -120,9 +120,12 @@
 
           marker.setPosition(place.geometry.location);
           marker.setVisible(true);
-  debugger
-          latitude = place.geometry.location.k;
-          longitude = place.geometry.location.D;
+debugger
+          latitude = marker.position.lat();
+          longitude = marker.position.lng();
+          
+          // latitude = place.geometry.location.k;
+          // longitude = place.geometry.location.D;
 
           var address = '';
           if (place.address_components) {
