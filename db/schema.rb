@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205050238) do
+ActiveRecord::Schema.define(version: 20141212045806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "listings", force: true do |t|
-    t.integer  "user_id",     null: false
-    t.string   "title",       null: false
-    t.text     "description", null: false
+    t.integer  "user_id",       null: false
+    t.string   "title",         null: false
+    t.text     "description",   null: false
     t.string   "image"
     t.string   "address"
     t.float    "latitude"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141205050238) do
     t.datetime "updated_at"
     t.date     "start_date"
     t.date     "end_date"
+    t.string   "contact_email"
   end
 
   add_index "listings", ["latitude"], name: "index_listings_on_latitude", using: :btree

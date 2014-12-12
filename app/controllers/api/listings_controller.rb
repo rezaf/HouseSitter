@@ -59,7 +59,8 @@ module Api
                 :latitude,
                 :longitude,
                 :start_date,
-                :end_date
+                :end_date,
+                :contact_email
         )
     end
   end
