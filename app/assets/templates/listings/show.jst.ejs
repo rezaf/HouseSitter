@@ -5,6 +5,8 @@
     <dd><%= listing.escape('description') %></dd><br>
     <dt>Address</dt>
     <dd><%= listing.escape('address') %></dd><br>
+    <dt>Email</dt>
+    <dd><%= listing.get('user_id') %></dd><br>
     <dt >Start date</dt>
     <dd class="datetime-local"><%= moment(listing.escape('start_date')).format('MMMM Do YYYY') %></dd><br>
     <dt>End date</dt>

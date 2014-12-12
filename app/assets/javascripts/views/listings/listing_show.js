@@ -24,7 +24,7 @@ HouseSitter.Views.ListingShow = Backbone.View.extend({
 
   render: function () {
     var renderedContent = this.template({
-      listing: this.model
+      listing: this.model,
     });
     this.$el.html(renderedContent);
     var latitude = this.model.attributes.latitude;
