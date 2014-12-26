@@ -2,4 +2,4 @@ Code for a website for connecting potential house sitters with people looking fo
 
 Ruby on Rails backend, Backbone.js frontend, using Postgres, JavaScript, jQuery, HTML, CSS and Bootstrap.
 
-Live on Heroku at: [www.housesitter.website]
+Live on Heroku at: www.housesitter.website
