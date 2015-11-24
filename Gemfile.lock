@@ -66,6 +66,7 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    callsite (0.0.11)
     coderay (1.1.0)
     coffee-script (2.3.0)
       coffee-script-source
@@ -84,6 +85,7 @@ GEM
     execjs (2.2.2)
     filepicker-rails (1.2.0)
       rails (>= 3.2)
+    git-version-bump (0.15.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -101,6 +103,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    meta_request (0.3.4)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     mime-types (2.99)
     mini_portile (0.6.2)
@@ -120,6 +126,9 @@ GEM
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
+    rack-contrib (1.4.0)
+      git-version-bump (~> 0.15)
+      rack (~> 1.4)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.4)
@@ -200,6 +209,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
+  meta_request
   momentjs-rails
   pg
   pry-rails

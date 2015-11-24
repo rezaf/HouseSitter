@@ -25,4 +25,5 @@ group :development do
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'seed_dump'
+  gem 'meta_request'
 end
