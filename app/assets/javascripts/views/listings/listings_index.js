@@ -23,7 +23,6 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
     var infowindow = new google.maps.InfoWindow(), marker, i;
 
     for (var i = 0; i < listOfLocationsForMarkers.length; i++) {
-
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(
           listOfLocationsForMarkers[i][1],
@@ -37,16 +36,16 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
           var contentString = '<div id="content">' +
-                                '<a href=#/listings/' +
-                                  listOfLocationsForMarkers[i][3] +
-                                '>' +
-                                listOfLocationsForMarkers[i][0] +
-                                '</a>' +
+                              '<a href=#/listings/' +
+                              listOfLocationsForMarkers[i][3] +
+                              '>' +
+                              listOfLocationsForMarkers[i][0] +
+                              '</a>' +
                               '</div>';
 
           infowindow.setContent(contentString);
           infowindow.open(map, marker);
-        }
+        };
       })(marker, i));
       marker.setMap(map);
       markers.push(marker);
@@ -62,7 +61,7 @@ HouseSitter.Views.ListingsIndex = Backbone.View.extend({
       }
     }
 
-    if (marker.getAnimation() != null) {
+    if (marker.getAnimation() !== null) {
       marker.setAnimation(null);
     } else {
       marker.setAnimation(google.maps.Animation.BOUNCE);

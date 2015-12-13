@@ -5,4 +5,6 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )
+
+js_assets = %w( google_maps.js google_analytics.js )
+Rails.application.config.assets.precompile += js_assets
