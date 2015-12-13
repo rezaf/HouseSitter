@@ -75,6 +75,7 @@ GEM
     columnize (0.8.9)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
+    dotenv (2.0.2)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -206,6 +207,7 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap3-datetimepicker-rails
   byebug
+  dotenv
   filepicker-rails
   jbuilder (~> 2.0)
   jquery-rails
