@@ -22,6 +22,7 @@ gem 'bootstrap3-datetimepicker-rails'
 group :development, :test do
   gem 'byebug'
   gem 'dotenv'
+  gem 'rspec-rails'
 end
 
 group :development do
