@@ -7,12 +7,6 @@
   <%= filepicker_js_include_tag %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'new_favicon.ico' %>
-
-  <% if Rails.env.production? %>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_MAPS_KEY'] %>"></script>
-  <% else %>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-  <% end %>
 </head>
 
 <body>
@@ -63,5 +57,11 @@
   <div id="map-canvas"></div>
 
   <%= yield %>
+
+  <% if Rails.env.production? %>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_MAPS_KEY'] %>"></script>
+  <% else %>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <% end %>
 </body>
 </html>
