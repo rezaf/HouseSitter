@@ -34,3 +34,5 @@ group :development do
   gem 'seed_dump'
   gem 'meta_request'
 end
+
+gem 'rails_12factor', group: :production
