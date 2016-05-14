@@ -9,10 +9,9 @@
   <%= favicon_link_tag 'new_favicon.ico' %>
 
   <% if Rails.env.production? %>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=<%= ENV['GOOGLE_MAPS_KEY'] %>"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_MAPS_KEY'] %>"></script>
   <% else %>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places">
-    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
   <% end %>
 </head>
 
