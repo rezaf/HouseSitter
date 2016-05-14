@@ -64,12 +64,5 @@
   <div id="map-canvas"></div>
 
   <%= yield %>
-
-  <% if signed_in? %>
-    <script>filepicker.setKey(ENV['FILEPICKER_KEY']);</script>
-    <%= javascript_include_tag 'google_maps' %>
-  <% end %>
-
-  <%= javascript_include_tag 'google_analytics' %>
 </body>
 </html>

@@ -15,5 +15,5 @@
 /log/*.log
 /tmp
 
-# Ignore development environment variables
+# Ignore environment variables
 .env
