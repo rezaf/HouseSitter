@@ -19,10 +19,11 @@ gem 'filepicker-rails'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
 
+gem 'rspec-rails', group: :test
+
 group :development, :test do
   gem 'byebug'
   gem 'dotenv'
-  gem 'rspec-rails'
 end
 
 group :development do
