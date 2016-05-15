@@ -58,10 +58,7 @@
 
   <%= yield %>
 
-  <% if Rails.env.production? %>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_MAPS_KEY'] %>"></script>
-  <% else %>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-  <% end %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_MAPS_KEY'] %>"></script>
+
 </body>
 </html>

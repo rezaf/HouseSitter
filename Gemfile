@@ -23,7 +23,7 @@ gem 'rspec-rails', group: :test
 
 group :development, :test do
   gem 'byebug'
-  gem 'dotenv'
+  gem 'dotenv-rails'
 end
 
 group :development do
