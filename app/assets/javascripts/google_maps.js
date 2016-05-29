@@ -4,12 +4,10 @@ $(function() {
     zoom: 12
   };
 
-  var map = new google.maps.Map(document.getElementById('map-canvas'),
-                                mapOptions);
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
   var input = /** @type {HTMLInputElement} */(
-    document.getElementById('pac-input')
-  );
+      document.getElementById('autocomplete'));
 
   var autocomplete = new google.maps.places.Autocomplete(input);
   autocomplete.bindTo('bounds', map);
@@ -63,7 +61,7 @@ $(function() {
     infowindow.setContent(
       '<div><strong>' + place.name + '</strong><br>' + address
     );
-    
+
     infowindow.open(map, marker);
   });
 });
