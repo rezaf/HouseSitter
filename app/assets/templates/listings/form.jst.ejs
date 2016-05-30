@@ -32,7 +32,8 @@
   <div class="form-group">
     <label for="address-field">Address</label><br>
     <input class="form-control"
-            id="pac-input"
+            type="text"
+            id="autocomplete"
             name="address-field"
             placeholder="Address"
     ></br>
@@ -80,6 +81,8 @@
         </div>
       </div>
     </div>
+
+    <script>addressAutocomplete();</script>
 
     <script type="text/javascript">
       $(function () {

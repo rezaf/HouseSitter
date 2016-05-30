@@ -1,4 +1,4 @@
-$(function() {
+function addressAutocomplete() {
   var mapOptions = {
     center: new google.maps.LatLng(37.77, -122.44),
     zoom: 12
@@ -6,17 +6,17 @@ $(function() {
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-  var input = /** @type {HTMLInputElement} */(
-      document.getElementById('autocomplete'));
-
-  var autocomplete = new google.maps.places.Autocomplete(input);
-  autocomplete.bindTo('bounds', map);
-
   var infowindow = new google.maps.InfoWindow();
   var marker = new google.maps.Marker({
     map: map,
     anchorPoint: new google.maps.Point(0, -29)
   });
+
+  var input = /** @type {HTMLInputElement} */(
+      document.getElementById('autocomplete'));
+
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.bindTo('bounds', map);
 
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
     infowindow.close();
@@ -64,4 +64,4 @@ $(function() {
 
     infowindow.open(map, marker);
   });
-});
+}
