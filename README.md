@@ -1,8 +1,8 @@
 HouseSitter
 ===========
 
-Code for web app connecting potential house sitters with people looking for house sitting services. The primary aim of this project is to highlight my web development skills.
+Code for web app connecting house sitters with people looking for house sitting services. The primary aim of this project is to highlight some of my web development skills.
 
-Ruby on Rails backend, Backbone.js frontend, using Postgres, JavaScript, jQuery, Google Maps API, Google Analytics, HTML, CSS and Bootstrap.
+Stack includes Ruby on Rails, Backbone.js, Postgres, JavaScript, jQuery, Google Maps API, Filestack, HTML, CSS and Twitter Bootstrap.
 
-Live on Heroku at: www.housesitter.website
+Live on Heroku at: [housesitter.website](http://www.housesitter.website)
