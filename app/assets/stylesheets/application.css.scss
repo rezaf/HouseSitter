@@ -71,6 +71,11 @@ body {
   border: none;
 }
 
+#map-canvas > div {
+  top: 0;
+  left: 0;
+}
+
 #new-listing {
   position: fixed;
   border: solid 1px darkgrey;
