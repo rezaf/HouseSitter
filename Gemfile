@@ -9,7 +9,6 @@ gem 'responders', '~> 2.0'
 gem 'sass-rails', '~> 5.0.6'
 gem 'uglifier', '~> 3.0'
 gem 'jquery-rails', '~> 4.2'
-gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',   group: :doc
 gem 'bcrypt', '~> 3.1.7'
