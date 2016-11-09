@@ -11,27 +11,29 @@ gem 'uglifier', '~> 3.0'
 gem 'jquery-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.6'
 gem 'bcrypt', '~> 3.1.11'
-gem 'backbone-on-rails'
-gem 'bootstrap-sass'
-gem 'filepicker-rails'
-gem 'momentjs-rails'
-gem 'bootstrap3-datetimepicker-rails'
-
-gem 'rspec-rails', group: :test
-
-group :development, :test do
-  gem 'byebug'
-  gem 'dotenv-rails'
-end
+gem 'backbone-on-rails', '~> 1.1.2.1'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'filepicker-rails', '~> 1.4.0'
+gem 'momentjs-rails', '~> 2.15.1'
+gem 'bootstrap3-datetimepicker-rails', '~> 3.1'
 
 group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
-  gem 'quiet_assets'
+
+  # Create DB Seed
   gem 'seed_dump'
+
+  # To Support Rails Panel Chrome plugin
   gem 'meta_request'
 end
 
+group :development, :test do
+  gem 'byebug'
+  gem 'dotenv-rails'
+end
+
+gem 'rspec-rails', group: :test
 gem 'rails_12factor', group: :production
