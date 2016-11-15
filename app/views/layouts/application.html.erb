@@ -59,6 +59,7 @@
   <%= yield %>
 
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_MAPS_KEY'] %>"></script>
+  <script>filepicker.setKey("<%=ENV['FILEPICKER_API_KEY']%>");</script>
 
 </body>
 </html>

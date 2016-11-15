@@ -13,7 +13,7 @@ gem 'jbuilder', '~> 2.6'
 gem 'bcrypt', '~> 3.1.11'
 gem 'backbone-on-rails', '~> 1.1.2.1'
 gem 'bootstrap-sass', '~> 3.3.7'
-gem 'filepicker-rails', '~> 1.4.0'
+gem 'filepicker-rails', '~> 2.1.0'
 gem 'momentjs-rails', '~> 2.15.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1'
 
