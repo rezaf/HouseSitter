@@ -79,6 +79,11 @@ GEM
     ejs (1.1.1)
     erubis (2.7.0)
     execjs (2.7.0)
+    factory_girl (4.7.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.7.0)
+      factory_girl (~> 4.7.0)
+      railties (>= 3.0.0)
     filepicker-rails (2.1.0)
       rails (>= 3.2)
     git-version-bump (0.15.1)
@@ -209,27 +214,28 @@ PLATFORMS
 DEPENDENCIES
   backbone-on-rails (~> 1.1.2.1)
   bcrypt (~> 3.1.11)
-  better_errors
-  binding_of_caller
+  better_errors (>= 2.1)
+  binding_of_caller (>= 0.7)
   bootstrap-sass (~> 3.3.7)
   bootstrap3-datetimepicker-rails (~> 3.1)
-  byebug
-  dotenv-rails
+  byebug (>= 9.0)
+  dotenv-rails (~> 2.1)
+  factory_girl_rails (~> 4.7)
   filepicker-rails (~> 2.1.0)
   jbuilder (~> 2.6)
   jquery-rails (~> 4.2)
-  meta_request
+  meta_request (>= 0.4)
   momentjs-rails (~> 2.15.1)
   pg (~> 0.19.0)
-  pry-rails
+  pry-rails (>= 0.3)
   puma (~> 2.16)
   rails (= 4.2.7.1)
-  rails_12factor
+  rails_12factor (>= 0.0.3)
   responders (~> 2.0)
-  rspec-rails
+  rspec-rails (~> 3.5)
   sass-rails (~> 5.0.6)
-  seed_dump
-  spring
+  seed_dump (>= 3.2)
+  spring (~> 2.0)
   uglifier (~> 3.0)
 
 BUNDLED WITH

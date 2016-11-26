@@ -17,23 +17,21 @@ gem 'filepicker-rails', '~> 2.1.0'
 gem 'momentjs-rails', '~> 2.15.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1'
 
-group :development do
-  gem 'spring'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'pry-rails'
-
-  # Create DB Seed
-  gem 'seed_dump'
-
-  # To Support Rails Panel Chrome plugin
-  gem 'meta_request'
-end
-
 group :development, :test do
-  gem 'byebug'
-  gem 'dotenv-rails'
+  gem 'byebug', '>= 9.0'
+  gem 'dotenv-rails', '~> 2.1'
+  gem 'factory_girl_rails', '~> 4.7'
 end
 
-gem 'rspec-rails', group: :test
-gem 'rails_12factor', group: :production
+group :development do
+  gem 'spring', '~> 2.0'
+  gem 'better_errors', '>= 2.1'
+  gem 'binding_of_caller', '>= 0.7'
+  gem 'pry-rails', '>= 0.3'
+  gem 'seed_dump', '>= 3.2'  # Create DB Seed
+  gem 'meta_request', '>= 0.4'  # To Support Rails Panel Chrome plugin
+end
+
+gem 'rspec-rails', '~> 3.5', group: :test
+
+gem 'rails_12factor', '>= 0.0.3', group: :production
