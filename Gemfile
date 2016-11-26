@@ -20,6 +20,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.1'
 group :development, :test do
   gem 'byebug', '>= 9.0'
   gem 'dotenv-rails', '~> 2.1'
+  gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.7'
 end
 
@@ -31,7 +32,5 @@ group :development do
   gem 'seed_dump', '>= 3.2'  # Create DB Seed
   gem 'meta_request', '>= 0.4'  # To Support Rails Panel Chrome plugin
 end
-
-gem 'rspec-rails', '~> 3.5', group: :test
 
 gem 'rails_12factor', '>= 0.0.3', group: :production
