@@ -18,7 +18,6 @@ gem 'momentjs-rails', '~> 2.15.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1'
 
 group :development, :test do
-  gem 'byebug', '>= 9.0'
   gem 'dotenv-rails', '~> 2.1'
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.7'
