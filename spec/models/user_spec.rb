@@ -3,6 +3,62 @@ require 'rails_helper'
 describe User do
   let!(:user) { create(:user) }
 
+  describe 'validations' do
+    it 'validates username for presence' do
+      invalid_user = User.new(email: 'user@email.com', password: 'password')
+      expect(invalid_user).not_to be_valid
+    end
+
+    it 'validates email for presence' do
+      invalid_user = User.new(username: 'user', password: 'password')
+      expect(invalid_user).not_to be_valid
+    end
+
+    it 'validates password for minimum length' do
+      invalid_user = User.new(
+        username: 'user',
+        email: 'email@email.com',
+        password: 'pass'
+      )
+
+      expect(invalid_user).not_to be_valid
+    end
+
+    it 'allows nil value for password' do
+      nil_password_user = User.new(
+        username: 'user',
+        email: 'email@email.com',
+        password: nil
+      )
+
+      expect(nil_password_user).to be_valid
+    end
+
+    it 'validates username for uniqueness' do
+      invalid_user = User.new(
+        username: 'test_user',
+        email: 'email@email.com',
+        password: 'password'
+      )
+
+      expect(invalid_user).not_to be_valid
+    end
+
+    it 'validates email for uniqueness' do
+      invalid_user = User.new(
+        username: 'user',
+        email: 'test@example.com',
+        password: 'password'
+      )
+
+      expect(invalid_user).not_to be_valid
+    end
+
+    it 'passes all validations for a valid user' do
+      expect(user).to be_valid
+    end
+  end
+
   describe '.find_by_credentials' do
     it "returns correct user when credentials match" do
       expect(User.find_by_credentials('test_user', 'test_password')).to eq(user)
