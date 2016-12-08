@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   validates :username, :email, :password_digest, presence: true
-  validates :password, length: { minimum: 6, allow_nil: true }
+  validates :password, length: { minimum: 6 }, allow_nil: true
   validates :username, :email, uniqueness: true
 
   has_many :listings
@@ -11,8 +11,7 @@ class User < ActiveRecord::Base
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
-    return nil unless user && user.valid_password?(password)
-    user
+    user if user&.valid_password?(password)
   end
 
   def password=(password)
@@ -31,6 +30,7 @@ class User < ActiveRecord::Base
   end
 
   private
+
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
   end
