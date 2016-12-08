@@ -21,13 +21,13 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.1'
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.7'
+  gem 'pry-rails', '>= 0.3'
 end
 
 group :development do
   gem 'spring', '~> 2.0'
   gem 'better_errors', '>= 2.1'
   gem 'binding_of_caller', '>= 0.7'
-  gem 'pry-rails', '>= 0.3'
   gem 'seed_dump', '>= 3.2'  # Create DB Seed
   gem 'meta_request', '>= 0.4'  # To Support Rails Panel Chrome plugin
 end
