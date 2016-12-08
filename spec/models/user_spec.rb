@@ -37,7 +37,7 @@ describe User do
   describe '#reset_session_token!' do
     it "generates and saves a new session token" do
       original_token = user.session_token
-      expect(user.session_token!).not_to eq original_token
+      expect(user.reset_session_token!).not_to eq original_token
     end
 
     it "returns the newly-generated session token" do
