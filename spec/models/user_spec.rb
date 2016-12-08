@@ -4,7 +4,7 @@ describe User do
   let!(:user) { create(:user) }
 
   describe '.find_by_credentials' do
-    it "returns correct user with matching username" do
+    it "returns correct user when credentials match" do
       expect(User.find_by_credentials('test_user', 'test_password')).to eq(user)
     end
 
@@ -37,9 +37,7 @@ describe User do
   describe '#reset_session_token!' do
     it "generates and saves a new session token" do
       original_token = user.session_token
-      user.reset_session_token!
-
-      expect(user.session_token).not_to eq original_token
+      expect(user.session_token!).not_to eq original_token
     end
 
     it "returns the newly-generated session token" do
