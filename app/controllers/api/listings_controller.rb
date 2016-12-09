@@ -13,7 +13,7 @@ module Api
         render json: @listing
       else
         render json: @listing.errors.full_messages,
-                      status: :unprocessable_entity
+               status: :unprocessable_entity
       end
     end
 
@@ -24,7 +24,7 @@ module Api
         render json: @listing
       else
         render json: @listing.errors.full_messages,
-                      status: :unprocessable_entity
+               status: :unprocessable_entity
       end
     end
 
@@ -35,33 +35,35 @@ module Api
         render json: @listing
       else
         render json: @listing.errors.full_messages,
-                      status: :unprocessable_entity
+               status: :unprocessable_entity
       end
     end
 
     def destroy
       @listing = Listing.find(params[:id])
+
       if @listing.destroy
         render json: { message: 'destroyed!' }
       else
         render json: @listing.errors.full_messages,
-                      status: :unprocessable_entity
+               status: :unprocessable_entity
       end
     end
 
     private
+
     def listing_params
-      params.require(:listing).
-        permit(:title,
-                :description,
-                :address,
-                :image,
-                :latitude,
-                :longitude,
-                :start_date,
-                :end_date,
-                :contact_email
-        )
+      params.require(:listing).permit(
+        :title,
+        :description,
+        :address,
+        :image,
+        :latitude,
+        :longitude,
+        :start_date,
+        :end_date,
+        :contact_email
+      )
     end
   end
 end
