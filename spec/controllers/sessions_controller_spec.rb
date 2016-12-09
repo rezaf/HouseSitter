@@ -82,13 +82,20 @@ describe SessionsController do
     end
   end
 
-  # describe '#destroy' do
-  #   it 'signs out user' do
-  #     # expect(session[:session_token]).to be_nil
-  #   end
-  #
-  #   it 'redirects to new session url' do
-  #     # expect(response).to redirect_to :new_session
-  #   end
-  # end
+  describe '#destroy' do
+    before(:all) { create(:user) }
+
+    before(:each) do
+      post :create, user: { username: 'test_user', password: 'test_password' }
+      delete :destroy
+    end
+
+    it 'signs out user' do
+      expect(session[:session_token]).to be_nil
+    end
+
+    it 'redirects to new session url' do
+      expect(response).to redirect_to :new_session
+    end
+  end
 end
