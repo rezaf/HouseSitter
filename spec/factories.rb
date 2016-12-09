@@ -5,6 +5,11 @@ FactoryGirl.define do
     password 'test_password'
   end
 
+  trait :guest do
+    username 'Guest'
+    password 'GuestPassword'
+  end
+
   factory :listing do
     title 'Listing Title'
     description 'Test description for listing title.'
