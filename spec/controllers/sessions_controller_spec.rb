@@ -83,9 +83,8 @@ describe SessionsController do
   end
 
   describe '#destroy' do
-    before(:all) { create(:user) }
-
     before(:each) do
+      create(:user)
       post :create, user: { username: 'test_user', password: 'test_password' }
       delete :destroy
     end
