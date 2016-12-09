@@ -1,6 +1,5 @@
-module Api
+module API
   class ListingsController < ApiController
-
     def index
       @listings = Listing.all
       render json: @listings
