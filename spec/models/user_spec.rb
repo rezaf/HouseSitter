@@ -5,17 +5,17 @@ describe User do
 
   describe 'validations' do
     it 'validates username for presence' do
-      invalid_user = User.new(email: 'user@email.com', password: 'password')
+      invalid_user = described_class.new(email: 'user@email.com', password: 'password')
       expect(invalid_user).not_to be_valid
     end
 
     it 'validates email for presence' do
-      invalid_user = User.new(username: 'user', password: 'password')
+      invalid_user = described_class.new(username: 'user', password: 'password')
       expect(invalid_user).not_to be_valid
     end
 
     it 'validates password for minimum length' do
-      invalid_user = User.new(
+      invalid_user = described_class.new(
         username: 'user',
         email: 'email@email.com',
         password: 'pass'
@@ -25,7 +25,7 @@ describe User do
     end
 
     it 'allows nil value for password' do
-      nil_password_user = User.new(
+      nil_password_user = described_class.new(
         username: 'user',
         email: 'email@email.com',
         password: nil
@@ -35,7 +35,7 @@ describe User do
     end
 
     it 'validates username for uniqueness' do
-      invalid_user = User.new(
+      invalid_user = described_class.new(
         username: 'test_user',
         email: 'email@email.com',
         password: 'password'
@@ -45,7 +45,7 @@ describe User do
     end
 
     it 'validates email for uniqueness' do
-      invalid_user = User.new(
+      invalid_user = described_class.new(
         username: 'user',
         email: 'test@example.com',
         password: 'password'
@@ -61,15 +61,18 @@ describe User do
 
   describe '.find_by_credentials' do
     it "returns correct user when credentials match" do
-      expect(User.find_by_credentials('test_user', 'test_password')).to eq(user)
+      expect(described_class.find_by_credentials('test_user', 'test_password'))
+        .to eq(user)
     end
 
     it "returns nil if username does not match a user" do
-      expect(User.find_by_credentials('test', 'test_password')).to be_nil
+      expect(described_class.find_by_credentials('test', 'test_password'))
+        .to be_nil
     end
 
     it "returns nil if password is not valid for user" do
-      expect(User.find_by_credentials('test_user', 'password')).to be_nil
+      expect(described_class.find_by_credentials('test_user', 'password'))
+        .to be_nil
     end
   end
 
