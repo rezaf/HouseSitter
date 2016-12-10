@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe UsersController do
-  describe '#new' do
+  describe 'GET new' do
     before(:each) { get :new }
 
     it 'generates new user model instance' do
@@ -13,7 +13,7 @@ describe UsersController do
     end
   end
 
-  describe '#create' do
+  describe 'POST create' do
     let(:successful_payload) {
       {
         username: 'username',

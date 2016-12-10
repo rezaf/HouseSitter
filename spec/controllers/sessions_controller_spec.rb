@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe SessionsController do
-  describe '#new' do
+  describe 'GET new' do
     before(:each) { get :new }
 
     it 'sets credentials to an empty hash' do
@@ -13,7 +13,7 @@ describe SessionsController do
     end
   end
 
-  describe '#create' do
+  describe 'POST create' do
     let!(:existing_user) { create(:user) }
 
     let(:good_credentials) {
@@ -62,7 +62,7 @@ describe SessionsController do
     end
   end
 
-  describe '#guest_sign_in' do
+  describe 'POST guest_sign_in' do
     let!(:guest_user) { create(:user, :guest) }
 
     before(:each) do
@@ -82,7 +82,7 @@ describe SessionsController do
     end
   end
 
-  describe '#destroy' do
+  describe 'DELETE destroy' do
     before(:each) do
       create(:user)
       post :create, user: { username: 'test_user', password: 'test_password' }
