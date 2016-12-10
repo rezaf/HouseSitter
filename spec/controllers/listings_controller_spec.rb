@@ -33,27 +33,45 @@ describe Api::ListingsController do
     end
 
     context 'when listing ID is not found' do
-      it 'renders error message json' do
+      it 'renders response with unprocessable_entity status' do
         get :show, id: 0
-        expect(response.status).to eq 422
+        expect(response.status).to be 422
       end
     end
   end
 
   describe 'POST create' do
     it 'initializes new listing' do
+      post :create, listing: {
+        title: 'New Listing',
+        description: 'New listing test description',
+        user_id: 1
+      }
 
+      expect(assigns(:listing)).to eq Listing.last
     end
 
     context 'when listing sucessfully saves' do
       it 'renders listing json' do
+        post :create, listing: {
+          title: 'New Listing',
+          description: 'New listing test description',
+          user_id: 1
+        }
 
+        expect(response.body).to eq Listing.last.to_json
       end
     end
 
     context 'when listing does not sucessfully save' do
-      it 'renders error message json' do
+      it 'renders error message json with unprocessable_entity status' do
+        post :create, listing: {
+          title: 'New Listing',
+          user_id: 1
+        }
 
+        expect(response.body).to eq ["Description can't be blank"].to_json
+        expect(response.status).to be 422
       end
     end
   end
