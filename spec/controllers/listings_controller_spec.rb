@@ -1,14 +1,13 @@
 require 'rails_helper'
 
 describe Api::ListingsController do
-  describe '#index' do
-    let!(:current_user) { create(:user, :guest) }
-    let!(:all_listings) { create_list(:listing, 3) }
+  let!(:current_user) { create(:user, :guest) }
+  let!(:all_listings) { create_list(:listing, 3) }
 
-    before(:each) do
-      session[:session_token] = current_user.session_token
-      get :index
-    end
+  before(:each) { session[:session_token] = current_user.session_token }
+
+  describe 'GET index' do
+    before(:each) { get :index }
 
     it 'sets listings to all listing records' do
       expect(assigns(:listings)).to eq all_listings
@@ -20,25 +19,28 @@ describe Api::ListingsController do
     end
   end
 
-  describe '#show' do
-    it 'sets listing based on ID' do
-
+  describe 'GET show' do
+    it 'finds and sets listing based on ID' do
+      get :show, id: all_listings.first.id
+      expect(assigns(:listing)).to eq all_listings.first
     end
 
-    context 'when listing is found' do
+    context 'when listing ID is found' do
       it 'renders listing json' do
-
+        get :show, id: all_listings.first.id
+        expect(response.body).to eq all_listings.first.to_json
       end
     end
 
-    context 'when listing is not found' do
+    context 'when listing ID is not found' do
       it 'renders error message json' do
-
+        get :show, id: 0
+        expect(response.status).to eq 422
       end
     end
   end
 
-  describe '#create' do
+  describe 'POST create' do
     it 'initializes new listing' do
 
     end
@@ -56,7 +58,7 @@ describe Api::ListingsController do
     end
   end
 
-  describe '#update' do
+  describe 'PUT update' do
     it 'sets listing based on ID' do
 
     end
@@ -74,7 +76,7 @@ describe Api::ListingsController do
     end
   end
 
-  describe '#destroy' do
+  describe 'DELETE destroy' do
     it 'sets listing based on ID' do
 
     end

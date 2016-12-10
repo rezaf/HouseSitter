@@ -6,13 +6,12 @@ module Api
     end
 
     def show
-      @listing = Listing.find(params[:id])
+      @listing = Listing.find_by_id(params[:id])
 
       if @listing
         render json: @listing
       else
-        render json: @listing.errors.full_messages,
-               status: :unprocessable_entity
+        head :unprocessable_entity
       end
     end
 
