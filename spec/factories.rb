@@ -11,8 +11,12 @@ FactoryGirl.define do
   end
 
   factory :listing do
-    title 'Listing Title'
-    description 'Test description for listing title.'
+    title { generate(:title) }
+    description 'Test description for listing titles.'
     user_id 1
+  end
+
+  sequence :title do |n|
+    "Listing Title #{n}"
   end
 end
