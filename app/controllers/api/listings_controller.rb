@@ -29,10 +29,10 @@ module Api
     def update
       @listing = Listing.find_by_id(params[:id])
 
-      if @listing.update_attributes(listing_params)
+      if @listing&.update_attributes(listing_params)
         render json: @listing
       else
-        render json: @listing.errors.full_messages,
+        render json: @listing.try(:errors).try(:full_messages),
                status: :unprocessable_entity
       end
     end
@@ -40,11 +40,10 @@ module Api
     def destroy
       @listing = Listing.find_by_id(params[:id])
 
-      if @listing.destroy
-        render json: { message: 'destroyed!' }
+      if @listing&.destroy
+        render json: 'destroyed!'
       else
-        render json: @listing.errors.full_messages,
-               status: :unprocessable_entity
+        head :unprocessable_entity
       end
     end
 

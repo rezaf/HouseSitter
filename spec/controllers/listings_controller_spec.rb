@@ -109,18 +109,21 @@ describe Api::ListingsController do
 
   describe 'DELETE destroy' do
     it 'sets listing based on ID' do
-
+      delete :destroy, id: all_listings.first.id
+      expect(assigns(:listing)).to eq all_listings.first
     end
 
     context 'when listing sucessfully destroyed' do
       it 'renders destroyed message' do
-
+        delete :destroy, id: all_listings.first.id
+        expect(response.body).to eq 'destroyed!'
       end
     end
 
     context 'when listing does not sucessfully destroy' do
       it 'renders error message json' do
-
+        delete :destroy, id: 0
+        expect(response.status).to be 422
       end
     end
   end
