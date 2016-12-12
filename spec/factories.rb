@@ -13,7 +13,7 @@ FactoryGirl.define do
   factory :listing do
     title { generate(:title) }
     description 'Test description for listing titles.'
-    user_id 1
+    user_id { User.first.id }
   end
 
   sequence :title do |n|

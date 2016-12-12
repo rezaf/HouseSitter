@@ -78,18 +78,31 @@ describe Api::ListingsController do
 
   describe 'PUT update' do
     it 'sets listing based on ID' do
+      put :update,
+        id: all_listings.first.id,
+        listing: { contact_email: 'test_email@example.com' }
 
+      expect(assigns(:listing)).to eq all_listings.first
     end
 
     context 'when listing sucessfully updates' do
       it 'renders listing json' do
+        put :update,
+          id: all_listings.first.id,
+          listing: { contact_email: 'test_email@example.com' }
 
+        expect(response.body).to eq Listing.first.to_json
       end
     end
 
     context 'when listing does not sucessfully update' do
       it 'renders error message json' do
+        put :update,
+          id: all_listings.first.id,
+          listing: { start_date: Date.tomorrow, end_date: Date.today }
 
+        expect(response.body).to eq ['Date range not correct!'].to_json
+        expect(response.status).to be 422
       end
     end
   end

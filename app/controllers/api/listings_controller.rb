@@ -27,7 +27,7 @@ module Api
     end
 
     def update
-      @listing = Listing.find(params[:id])
+      @listing = Listing.find_by_id(params[:id])
 
       if @listing.update_attributes(listing_params)
         render json: @listing
@@ -38,7 +38,7 @@ module Api
     end
 
     def destroy
-      @listing = Listing.find(params[:id])
+      @listing = Listing.find_by_id(params[:id])
 
       if @listing.destroy
         render json: { message: 'destroyed!' }
