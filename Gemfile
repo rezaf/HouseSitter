@@ -4,7 +4,7 @@ ruby '2.4.1'
 
 gem 'rails', '4.2.8'
 gem 'pg', '~> 0.19.0'
-gem 'puma', '~> 2.16'
+gem 'puma', '~> 3.12'
 gem 'responders', '~> 2.0'
 gem 'sass-rails', '~> 5.0.6'
 gem 'uglifier', '~> 3.0'
