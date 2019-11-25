@@ -122,7 +122,7 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     puma (3.12.1)
-    rack (1.6.8)
+    rack (1.6.11)
     rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
       rack (~> 1.4)
